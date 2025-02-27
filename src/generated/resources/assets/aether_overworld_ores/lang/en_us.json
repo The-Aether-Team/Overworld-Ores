@@ -6,5 +6,6 @@
   "block.aether_overworld_ores.holystone_gold_ore": "Holystone Gold Ore",
   "block.aether_overworld_ores.holystone_iron_ore": "Holystone Iron Ore",
   "block.aether_overworld_ores.holystone_lapis_ore": "Holystone Lapis Ore",
-  "block.aether_overworld_ores.holystone_redstone_ore": "Holystone Redstone Ore"
+  "block.aether_overworld_ores.holystone_redstone_ore": "Holystone Redstone Ore",
+  "pack.aether_overworld_ores.mod.description": "The Aether: Overworld Ores Resources"
 }

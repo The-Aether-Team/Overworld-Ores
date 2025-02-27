@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#aether_overworld_ores:has_holystone_emerald_ore",
+  "features": "aether_overworld_ores:holystone_emerald_coal",
+  "step": "underground_ores"
+}

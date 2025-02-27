@@ -1,8 +1,8 @@
 package com.aetherteam.overworldores;
 
-import com.aetherteam.overworldores.block.OverworldOreBlocks;
-import com.aetherteam.overworldores.block.OverworldOreItems;
-import com.aetherteam.overworldores.data.OverworldOreData;
+import com.aetherteam.overworldores.block.OverworldOresBlocks;
+import com.aetherteam.overworldores.block.OverworldOresItems;
+import com.aetherteam.overworldores.data.OverworldOresData;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -17,11 +17,11 @@ public class OverworldOres {
 
     public OverworldOres() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        modEventBus.addListener(OverworldOreData::dataSetup);
+        modEventBus.addListener(OverworldOresData::dataSetup);
 
         DeferredRegister<?>[] registers = {
-                OverworldOreBlocks.BLOCKS,
-                OverworldOreItems.ITEMS,
+                OverworldOresBlocks.BLOCKS,
+                OverworldOresItems.ITEMS,
         };
 
         for (DeferredRegister<?> register : registers) {

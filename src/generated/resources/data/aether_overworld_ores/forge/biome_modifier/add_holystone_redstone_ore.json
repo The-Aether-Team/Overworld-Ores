@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#aether_overworld_ores:has_holystone_redstone_ore",
+  "features": "aether_overworld_ores:holystone_redstone_coal",
+  "step": "underground_ores"
+}
