@@ -1,0 +1,13 @@
+// 1.20.1	2025-02-26T18:12:03.0874416	Tags for minecraft:block mod id aether
+aed75ba2b16a959796c4867a351d226a5c15ff5b data/minecraft/tags/blocks/coal_ores.json
+ed2ec903ec1ac9d1dec6819e6dfb56a616eae867 data/minecraft/tags/blocks/copper_ores.json
+0437eb26d63716ee5a721b9e8e857eabaa68ac52 data/minecraft/tags/blocks/diamond_ores.json
+1c009a3b744750786bddb1bbc69a00d98f9531c7 data/minecraft/tags/blocks/emerald_ores.json
+722b81f73cb34431fa655db3d7a0653e39e275d5 data/minecraft/tags/blocks/gold_ores.json
+11ac536f96673acdde496c8d2510714755d0fdfe data/minecraft/tags/blocks/iron_ores.json
+1f8770dd4fe146ad684db776ab11b3a692b60670 data/minecraft/tags/blocks/lapis_ores.json
+ffe06c4ab44bac2c7e9f7767d7a1695804c8105b data/minecraft/tags/blocks/mineable/pickaxe.json
+2647e040233237dbb71fce646b2f1985fa8f6871 data/minecraft/tags/blocks/needs_iron_tool.json
+cdd258d26a9a44bda15eb79e696da50af6110d96 data/minecraft/tags/blocks/needs_stone_tool.json
+7dc8ab204d4df4b035c55e30545b1ae575f536fd data/minecraft/tags/blocks/redstone_ores.json
+f61ff38172720c9ac84bb5d29151a81676afd2f7 data/minecraft/tags/blocks/snaps_goat_horn.json

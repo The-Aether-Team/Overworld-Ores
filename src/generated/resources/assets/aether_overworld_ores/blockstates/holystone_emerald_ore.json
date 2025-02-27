@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "aether_overworld_ores:block/holystone_emerald_ore"
+    }
+  }
+}

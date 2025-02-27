@@ -1,9 +1,8 @@
 {
   "pack": {
     "description": {
-      "translate": "pack.examplemod.mod.description"
+      "translate": "pack.aether_overworld_ores.mod.description"
     },
-    "forge:server_data_pack_format": 12,
-    "pack_format": 13
+    "pack_format": 15
   }
 }
