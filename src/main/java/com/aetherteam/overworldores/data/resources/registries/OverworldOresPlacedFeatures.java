@@ -31,25 +31,25 @@ public class OverworldOresPlacedFeatures {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(OverworldOres.MODID, name));
     }
 
-    public static void bootstrap(BootstapContext<PlacedFeature> context) { //todo height range and count
+    public static void bootstrap(BootstapContext<PlacedFeature> context) { 
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, HOLYSTONE_ORE_COAL_PLACEMENT, configuredFeatures.getOrThrow(OverworldOresConfiguredFeatures.HOLYSTONE_ORE_COAL_CONFIGURATION),
-                NitrogenPlacedFeatureBuilders.commonOrePlacement(20, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(10, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
         register(context, HOLYSTONE_ORE_IRON_PLACEMENT, configuredFeatures.getOrThrow(OverworldOresConfiguredFeatures.HOLYSTONE_ORE_IRON_CONFIGURATION),
-                NitrogenPlacedFeatureBuilders.commonOrePlacement(20, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(10, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(75))));
         register(context, HOLYSTONE_ORE_COPPER_PLACEMENT, configuredFeatures.getOrThrow(OverworldOresConfiguredFeatures.HOLYSTONE_ORE_COPPER_CONFIGURATION),
-                NitrogenPlacedFeatureBuilders.commonOrePlacement(20, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(80))));
         register(context, HOLYSTONE_ORE_GOLD_PLACEMENT, configuredFeatures.getOrThrow(OverworldOresConfiguredFeatures.HOLYSTONE_ORE_GOLD_CONFIGURATION),
-                NitrogenPlacedFeatureBuilders.commonOrePlacement(20, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(6, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(64))));
         register(context, HOLYSTONE_ORE_REDSTONE_PLACEMENT, configuredFeatures.getOrThrow(OverworldOresConfiguredFeatures.HOLYSTONE_ORE_REDSTONE_CONFIGURATION),
-                NitrogenPlacedFeatureBuilders.commonOrePlacement(20, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(8, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(44))));
         register(context, HOLYSTONE_ORE_LAPIS_PLACEMENT, configuredFeatures.getOrThrow(OverworldOresConfiguredFeatures.HOLYSTONE_ORE_LAPIS_CONFIGURATION),
-                NitrogenPlacedFeatureBuilders.commonOrePlacement(20, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(6, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(52))));
         register(context, HOLYSTONE_ORE_EMERALD_PLACEMENT, configuredFeatures.getOrThrow(OverworldOresConfiguredFeatures.HOLYSTONE_ORE_EMERALD_CONFIGURATION),
-                NitrogenPlacedFeatureBuilders.commonOrePlacement(20, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(4, HeightRangePlacement.triangle(VerticalAnchor.absolute(-16), VerticalAnchor.absolute(190))));
         register(context, HOLYSTONE_ORE_DIAMOND_PLACEMENT, configuredFeatures.getOrThrow(OverworldOresConfiguredFeatures.HOLYSTONE_ORE_DIAMOND_CONFIGURATION),
-                NitrogenPlacedFeatureBuilders.commonOrePlacement(20, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(6, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-58), VerticalAnchor.aboveBottom(74))));
     }
 
     private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, List<PlacementModifier> modifiers) {
