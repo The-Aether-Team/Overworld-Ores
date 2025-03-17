@@ -1,11 +1,11 @@
 {
-  "type": "minecraft:blasting",
+  "type": "minecraft:smelting",
   "category": "misc",
-  "cookingtime": 100,
+  "cookingtime": 200,
   "experience": 1.0,
-  "group": "emerald",
+  "group": "diamond",
   "ingredient": {
     "item": "aether_overworld_ores:holystone_diamond_ore"
   },
-  "result": "minecraft:emerald"
+  "result": "minecraft:diamond"
 }

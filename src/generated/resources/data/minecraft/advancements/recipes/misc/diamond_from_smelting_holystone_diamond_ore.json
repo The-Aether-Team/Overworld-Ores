@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:emerald_from_smelting_holystone_diamond_ore"
+        "recipe": "minecraft:diamond_from_smelting_holystone_diamond_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:emerald_from_smelting_holystone_diamond_ore"
+      "minecraft:diamond_from_smelting_holystone_diamond_ore"
     ]
   },
   "sends_telemetry_event": false

@@ -4,7 +4,9 @@ import com.aetherteam.nitrogen.data.providers.NitrogenBlockStateProvider;
 import com.aetherteam.overworldores.OverworldOres;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
 
 public class OverworldOresBlockStateData extends NitrogenBlockStateProvider {
     public OverworldOresBlockStateData(PackOutput output, ExistingFileHelper helper) {
@@ -13,13 +15,8 @@ public class OverworldOresBlockStateData extends NitrogenBlockStateProvider {
 
     @Override
     public void registerStatesAndModels() {
-        this.block(OverworldOresBlocks.HOLYSTONE_COAL_ORE.get(), "natural/");
-        this.block(OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(), "natural/");
-        this.block(OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(), "natural/");
-        this.block(OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get(), "natural/");
-        this.block(OverworldOresBlocks.HOLYSTONE_REDSTONE_ORE.get(), "natural/");
-        this.block(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get(), "natural/");
-        this.block(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get(), "natural/");
-        this.block(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get(), "natural/");
+        for (RegistryObject<? extends Block> ore : OverworldOresBlocks.ORE_BLOCKS) {
+            this.block(ore.get(), "natural/");
+        }
     }
 }

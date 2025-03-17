@@ -4,6 +4,12 @@ import com.aetherteam.nitrogen.data.providers.NitrogenLanguageProvider;
 import com.aetherteam.overworldores.OverworldOres;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.RegistryObject;
+
+import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class OverworldOresLanguageData extends NitrogenLanguageProvider {
     public OverworldOresLanguageData(PackOutput output) {
@@ -12,14 +18,13 @@ public class OverworldOresLanguageData extends NitrogenLanguageProvider {
 
     @Override
     protected void addTranslations() {
-        this.addBlock(OverworldOresBlocks.HOLYSTONE_COAL_ORE, "Holystone Coal Ore");
-        this.addBlock(OverworldOresBlocks.HOLYSTONE_IRON_ORE, "Holystone Iron Ore");
-        this.addBlock(OverworldOresBlocks.HOLYSTONE_COPPER_ORE, "Holystone Copper Ore");
-        this.addBlock(OverworldOresBlocks.HOLYSTONE_GOLD_ORE, "Holystone Gold Ore");
-        this.addBlock(OverworldOresBlocks.HOLYSTONE_REDSTONE_ORE, "Holystone Redstone Ore");
-        this.addBlock(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE, "Holystone Lapis Ore");
-        this.addBlock(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE, "Holystone Emerald Ore");
-        this.addBlock(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE, "Holystone Diamond Ore");
+        for (RegistryObject<? extends Block> ore : OverworldOresBlocks.ORE_BLOCKS) {
+            String id = ore.getId().getPath();
+            String name = Stream.of(id.replace('_', ' ').split(" "))
+                    .map((str) -> str.substring(0,1).toUpperCase() + str.substring(1).toLowerCase())
+                    .collect(Collectors.joining(" "));
+            this.addBlock(ore, name);
+        }
 
         this.addPackDescription("mod", "The Aether: Overworld Ores Resources");
     }

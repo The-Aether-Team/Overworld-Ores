@@ -3,9 +3,9 @@
   "category": "misc",
   "cookingtime": 200,
   "experience": 1.0,
-  "group": "diamond",
+  "group": "emerald",
   "ingredient": {
-    "item": "aether_overworld_ores:holystone_redstone_ore"
+    "item": "aether_overworld_ores:holystone_emerald_ore"
   },
-  "result": "minecraft:diamond"
+  "result": "minecraft:emerald"
 }

@@ -14,12 +14,16 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class OverworldOresBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, OverworldOres.MODID);
+
+    public static final List<RegistryObject<? extends Block>> ORE_BLOCKS = new ArrayList<>();
 
     public static final RegistryObject<Block> HOLYSTONE_COAL_ORE = register("holystone_coal_ore", () -> new AetherDoubleDropsOreBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 3.0F), UniformInt.of(0, 2)));
     public static final RegistryObject<Block> HOLYSTONE_IRON_ORE = register("holystone_iron_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
@@ -33,6 +37,7 @@ public class OverworldOresBlocks {
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
         RegistryObject<T> register = BLOCKS.register(name, block);
         OverworldOresItems.ITEMS.register(name, item.apply(register));
+        ORE_BLOCKS.add(register);
         return register;
     }
 

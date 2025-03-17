@@ -3,10 +3,13 @@ package com.aetherteam.overworldores.data.generators;
 import com.aetherteam.nitrogen.data.providers.NitrogenRecipeProvider;
 import com.aetherteam.overworldores.OverworldOres;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
+import org.antlr.v4.runtime.misc.Triple;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -16,24 +19,22 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
         super(output, OverworldOres.MODID);
     }
 
+    public static final ImmutableList<Triple<ItemLike, ItemLike, Float>> SMELTABLES = ImmutableList.of(
+            new Triple<>(OverworldOresBlocks.HOLYSTONE_COAL_ORE.get(), Items.COAL, 0.1F),
+            new Triple<>(OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(), Items.IRON_INGOT, 0.7F),
+            new Triple<>(OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(), Items.COPPER_INGOT, 0.7F),
+            new Triple<>(OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get(), Items.GOLD_INGOT, 1.0F),
+            new Triple<>(OverworldOresBlocks.HOLYSTONE_REDSTONE_ORE.get(), Items.REDSTONE, 0.7F),
+            new Triple<>(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get(), Items.LAPIS_LAZULI, 0.2F),
+            new Triple<>(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get(), Items.EMERALD, 1.0F),
+            new Triple<>(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get(), Items.DIAMOND, 1.0F)
+    );
+
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
-        oreSmelting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_COAL_ORE.get()), RecipeCategory.MISC, Items.COAL, 0.1F, 200, "coal");
-        oreSmelting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_IRON_ORE.get()), RecipeCategory.MISC, Items.IRON_INGOT, 0.7F, 200, "iron_ingot");
-        oreSmelting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get()), RecipeCategory.MISC, Items.COPPER_INGOT, 0.7F, 200, "copper_ingot");
-        oreSmelting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get()), RecipeCategory.MISC, Items.GOLD_INGOT, 1.0F, 200, "gold_ingot");
-        oreSmelting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_REDSTONE_ORE.get()), RecipeCategory.MISC, Items.DIAMOND, 1.0F, 200, "diamond");
-        oreSmelting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get()), RecipeCategory.MISC, Items.LAPIS_LAZULI, 0.2F, 200, "lapis_lazuli");
-        oreSmelting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get()), RecipeCategory.REDSTONE, Items.REDSTONE, 0.7F, 200, "redstone");
-        oreSmelting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get()), RecipeCategory.MISC, Items.EMERALD, 1.0F, 200, "emerald");
-
-        oreBlasting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_COAL_ORE.get()), RecipeCategory.MISC, Items.COAL, 0.1F, 100, "coal");
-        oreBlasting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_IRON_ORE.get()), RecipeCategory.MISC, Items.IRON_INGOT, 0.7F, 100, "iron_ingot");
-        oreBlasting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get()), RecipeCategory.MISC, Items.COPPER_INGOT, 0.7F, 100, "copper_ingot");
-        oreBlasting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get()), RecipeCategory.MISC, Items.GOLD_INGOT, 1.0F, 100, "gold_ingot");
-        oreBlasting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_REDSTONE_ORE.get()), RecipeCategory.MISC, Items.DIAMOND, 1.0F, 100, "diamond");
-        oreBlasting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get()), RecipeCategory.MISC, Items.LAPIS_LAZULI, 0.2F, 100, "lapis_lazuli");
-        oreBlasting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get()), RecipeCategory.REDSTONE, Items.REDSTONE, 0.7F, 100, "redstone");
-        oreBlasting(consumer, List.of(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get()), RecipeCategory.MISC, Items.EMERALD, 1.0F, 100, "emerald");
+        for (Triple<ItemLike, ItemLike, Float> entry : SMELTABLES) {
+            oreSmelting(consumer, List.of(entry.a), RecipeCategory.MISC, entry.b, entry.c, 200, entry.b.asItem().builtInRegistryHolder().key().location().getPath());
+            oreBlasting(consumer, List.of(entry.a), RecipeCategory.MISC, entry.b, entry.c, 100, entry.b.asItem().builtInRegistryHolder().key().location().getPath());
+        }
     }
 }

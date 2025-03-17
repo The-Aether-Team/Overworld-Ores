@@ -1,11 +1,11 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:blasting",
   "category": "blocks",
-  "cookingtime": 200,
+  "cookingtime": 100,
   "experience": 0.7,
   "group": "redstone",
   "ingredient": {
-    "item": "aether_overworld_ores:holystone_emerald_ore"
+    "item": "aether_overworld_ores:holystone_redstone_ore"
   },
   "result": "minecraft:redstone"
 }

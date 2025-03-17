@@ -5,8 +5,10 @@ import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -27,16 +29,11 @@ public class OverworldOresBlockTagData extends BlockTagsProvider {
         this.tag(BlockTags.EMERALD_ORES).add(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get());
         this.tag(BlockTags.DIAMOND_ORES).add(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get());
 
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
-                OverworldOresBlocks.HOLYSTONE_COAL_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_REDSTONE_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get()
-        );
+        IntrinsicTagAppender<Block> pickaxe = this.tag(BlockTags.MINEABLE_WITH_PICKAXE);
+        for (RegistryObject<? extends Block> ore : OverworldOresBlocks.ORE_BLOCKS) {
+            pickaxe.add(ore.get());
+        }
+
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(
                 OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(),
                 OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(),
