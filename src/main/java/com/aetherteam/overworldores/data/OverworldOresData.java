@@ -1,6 +1,5 @@
 package com.aetherteam.overworldores.data;
 
-import com.aetherteam.aether.data.generators.tags.AetherItemTagData;
 import com.aetherteam.overworldores.data.generators.*;
 import com.aetherteam.overworldores.data.generators.tags.OverworldOresBiomeTagData;
 import com.aetherteam.overworldores.data.generators.tags.OverworldOresBlockTagData;

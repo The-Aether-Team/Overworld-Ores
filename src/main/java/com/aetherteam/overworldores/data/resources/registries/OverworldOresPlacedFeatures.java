@@ -1,6 +1,5 @@
 package com.aetherteam.overworldores.data.resources.registries;
 
-import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
 import com.aetherteam.overworldores.OverworldOres;
 import net.minecraft.core.Holder;
