@@ -22,6 +22,14 @@ public class OverworldOresBlockTagData extends BlockTagsProvider {
 
     @Override
     public void addTags(HolderLookup.Provider provider) {
+        IntrinsicTagAppender<Block> aetherBlock = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
+        IntrinsicTagAppender<Block> pickaxe = this.tag(BlockTags.MINEABLE_WITH_PICKAXE);
+
+        for (RegistryObject<? extends Block> ore : OverworldOresBlocks.ORE_BLOCKS) {
+            pickaxe.add(ore.get());
+            aetherBlock.add(ore.get());
+        }
+
         this.tag(BlockTags.COAL_ORES).add(OverworldOresBlocks.HOLYSTONE_COAL_ORE.get());
         this.tag(BlockTags.IRON_ORES).add(OverworldOresBlocks.HOLYSTONE_IRON_ORE.get());
         this.tag(BlockTags.COPPER_ORES).add(OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get());
@@ -30,11 +38,6 @@ public class OverworldOresBlockTagData extends BlockTagsProvider {
         this.tag(BlockTags.LAPIS_ORES).add(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get());
         this.tag(BlockTags.EMERALD_ORES).add(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get());
         this.tag(BlockTags.DIAMOND_ORES).add(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get());
-
-        IntrinsicTagAppender<Block> pickaxe = this.tag(BlockTags.MINEABLE_WITH_PICKAXE);
-        for (RegistryObject<? extends Block> ore : OverworldOresBlocks.ORE_BLOCKS) {
-            pickaxe.add(ore.get());
-        }
 
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(
                 OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(),

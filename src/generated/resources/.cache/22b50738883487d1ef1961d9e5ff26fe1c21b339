@@ -1,4 +1,5 @@
-// 1.20.1	2025-03-17T19:03:58.6194248	Tags for minecraft:block mod id aether
+// 1.20.1	2025-03-17T19:10:41.2700131	Tags for minecraft:block mod id aether
+ffe06c4ab44bac2c7e9f7767d7a1695804c8105b data/aether/tags/blocks/treated_as_aether_block.json
 cac76fcb1c8cbee15b8c0ec41b58ab871e8dee84 data/forge/tags/blocks/ore_rates/dense.json
 9ce2300a03b9961fb1505d3ff43fbd3eb5dfa381 data/forge/tags/blocks/ore_rates/singular.json
 aed75ba2b16a959796c4867a351d226a5c15ff5b data/minecraft/tags/blocks/coal_ores.json
