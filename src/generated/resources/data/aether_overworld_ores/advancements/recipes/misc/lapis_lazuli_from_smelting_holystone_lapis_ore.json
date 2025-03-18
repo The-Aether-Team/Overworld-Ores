@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_holystone_diamond_ore": {
+    "has_holystone_lapis_ore": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_overworld_ores:holystone_diamond_ore"
+              "aether_overworld_ores:holystone_lapis_ore"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:diamond_from_blasting_holystone_diamond_ore"
+        "recipe": "aether_overworld_ores:lapis_lazuli_from_smelting_holystone_lapis_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_holystone_diamond_ore",
+      "has_holystone_lapis_ore",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:diamond_from_blasting_holystone_diamond_ore"
+      "aether_overworld_ores:lapis_lazuli_from_smelting_holystone_lapis_ore"
     ]
   },
   "sends_telemetry_event": false

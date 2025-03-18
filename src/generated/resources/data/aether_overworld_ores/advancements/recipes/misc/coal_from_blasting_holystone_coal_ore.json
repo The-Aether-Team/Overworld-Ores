@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_holystone_iron_ore": {
+    "has_holystone_coal_ore": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_overworld_ores:holystone_iron_ore"
+              "aether_overworld_ores:holystone_coal_ore"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:iron_ingot_from_blasting_holystone_iron_ore"
+        "recipe": "aether_overworld_ores:coal_from_blasting_holystone_coal_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_holystone_iron_ore",
+      "has_holystone_coal_ore",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:iron_ingot_from_blasting_holystone_iron_ore"
+      "aether_overworld_ores:coal_from_blasting_holystone_coal_ore"
     ]
   },
   "sends_telemetry_event": false

@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:emerald_from_smelting_holystone_emerald_ore"
+        "recipe": "aether_overworld_ores:emerald_from_blasting_holystone_emerald_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:emerald_from_smelting_holystone_emerald_ore"
+      "aether_overworld_ores:emerald_from_blasting_holystone_emerald_ore"
     ]
   },
   "sends_telemetry_event": false

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_holystone_redstone_ore": {
+    "has_holystone_copper_ore": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_overworld_ores:holystone_redstone_ore"
+              "aether_overworld_ores:holystone_copper_ore"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:redstone_from_smelting_holystone_redstone_ore"
+        "recipe": "aether_overworld_ores:copper_ingot_from_blasting_holystone_copper_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_holystone_redstone_ore",
+      "has_holystone_copper_ore",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:redstone_from_smelting_holystone_redstone_ore"
+      "aether_overworld_ores:copper_ingot_from_blasting_holystone_copper_ore"
     ]
   },
   "sends_telemetry_event": false

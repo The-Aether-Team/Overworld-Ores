@@ -39,9 +39,9 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) { //todo create crushing and other compat recipes
-        for (var entry : SMELTABLES) { //todo mod folder path instead of minecraft folder path
-            oreSmelting(consumer, List.of(entry.a), RecipeCategory.MISC, entry.b, entry.c, 200, entry.b.asItem().builtInRegistryHolder().key().location().getPath());
-            oreBlasting(consumer, List.of(entry.a), RecipeCategory.MISC, entry.b, entry.c, 100, entry.b.asItem().builtInRegistryHolder().key().location().getPath());
+        for (var entry : SMELTABLES) {
+            this.smeltingOreRecipe(entry.b, entry.a, entry.c).group(entry.b.asItem().builtInRegistryHolder().key().location().getPath()).save(consumer, this.name(getItemName(entry.b) + "_from_smelting_" + getItemName(entry.a)));
+            this.blastingOreRecipe(entry.b, entry.a, entry.c).group(entry.b.asItem().builtInRegistryHolder().key().location().getPath()).save(consumer, this.name(getItemName(entry.b) + "_from_blasting_" + getItemName(entry.a)));
         }
 
         for (var entry : ModdedOres.ORE_MOD_MAP.entries()) {
@@ -53,11 +53,11 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
             ConditionalRecipe.builder()
                     .addCondition(new ModLoadedCondition(modId))
                     .addRecipe(SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 200, RecipeSerializer.SMELTING_RECIPE).group(group).unlockedBy(getHasName(itemlike), has(itemlike))::save)
-                    .build(consumer, new ResourceLocation(getItemName(result) + "_from_smelting" + "_" + getItemName(itemlike) + "_" + modId));
+                    .build(consumer, this.name(getItemName(result) + "_from_smelting" + "_" + getItemName(itemlike) + "_" + modId));
             ConditionalRecipe.builder()
                     .addCondition(new ModLoadedCondition(modId))
                     .addRecipe(SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 100, RecipeSerializer.BLASTING_RECIPE).group(group).unlockedBy(getHasName(itemlike), has(itemlike))::save)
-                    .build(consumer, new ResourceLocation(getItemName(result) + "_from_blasting" + "_" + getItemName(itemlike) + "_" + modId));
+                    .build(consumer, this.name(getItemName(result) + "_from_blasting" + "_" + getItemName(itemlike) + "_" + modId));
         }
     }
 }

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_holystone_coal_ore": {
+    "has_holystone_diamond_ore": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_overworld_ores:holystone_coal_ore"
+              "aether_overworld_ores:holystone_diamond_ore"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:coal_from_blasting_holystone_coal_ore"
+        "recipe": "aether_overworld_ores:diamond_from_smelting_holystone_diamond_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_holystone_coal_ore",
+      "has_holystone_diamond_ore",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:coal_from_blasting_holystone_coal_ore"
+      "aether_overworld_ores:diamond_from_smelting_holystone_diamond_ore"
     ]
   },
   "sends_telemetry_event": false

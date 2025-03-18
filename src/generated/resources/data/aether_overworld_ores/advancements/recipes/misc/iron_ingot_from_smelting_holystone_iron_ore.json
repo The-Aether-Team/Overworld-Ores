@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_holystone_lapis_ore": {
+    "has_holystone_iron_ore": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_overworld_ores:holystone_lapis_ore"
+              "aether_overworld_ores:holystone_iron_ore"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:lapis_lazuli_from_smelting_holystone_lapis_ore"
+        "recipe": "aether_overworld_ores:iron_ingot_from_smelting_holystone_iron_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_holystone_lapis_ore",
+      "has_holystone_iron_ore",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:lapis_lazuli_from_smelting_holystone_lapis_ore"
+      "aether_overworld_ores:iron_ingot_from_smelting_holystone_iron_ore"
     ]
   },
   "sends_telemetry_event": false

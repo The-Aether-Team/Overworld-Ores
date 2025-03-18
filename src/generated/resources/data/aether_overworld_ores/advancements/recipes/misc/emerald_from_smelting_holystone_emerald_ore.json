@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_holystone_gold_ore": {
+    "has_holystone_emerald_ore": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_overworld_ores:holystone_gold_ore"
+              "aether_overworld_ores:holystone_emerald_ore"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:gold_ingot_from_smelting_holystone_gold_ore"
+        "recipe": "aether_overworld_ores:emerald_from_smelting_holystone_emerald_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_holystone_gold_ore",
+      "has_holystone_emerald_ore",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:gold_ingot_from_smelting_holystone_gold_ore"
+      "aether_overworld_ores:emerald_from_smelting_holystone_emerald_ore"
     ]
   },
   "sends_telemetry_event": false
