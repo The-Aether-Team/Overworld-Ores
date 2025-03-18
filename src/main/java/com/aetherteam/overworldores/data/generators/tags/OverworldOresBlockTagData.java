@@ -3,9 +3,13 @@ package com.aetherteam.overworldores.data.generators.tags;
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
+import com.aetherteam.overworldores.integration.ModdedOres;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
@@ -38,11 +42,15 @@ public class OverworldOresBlockTagData extends BlockTagsProvider {
         this.tag(BlockTags.LAPIS_ORES).add(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get());
         this.tag(BlockTags.EMERALD_ORES).add(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get());
         this.tag(BlockTags.DIAMOND_ORES).add(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get());
+        for (ModdedOres.OreKey ore : ModdedOres.ORE_MOD_MAP.keySet()) {
+            this.tag(TagKey.create(Registries.BLOCK, new ResourceLocation("forge", "ores/" + ore.name()))).add(ore.holystoneOreBlock().get());
+        }
 
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(
                 OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(),
                 OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get()
+                OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_TIN_ORE.get()
         );
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
                 OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get(),
@@ -55,7 +63,8 @@ public class OverworldOresBlockTagData extends BlockTagsProvider {
                 OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(),
                 OverworldOresBlocks.HOLYSTONE_COAL_ORE.get(),
                 OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get()
+                OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_TIN_ORE.get()
         );
 
         this.tag(Tags.Blocks.ORE_RATES_DENSE).add(
@@ -68,7 +77,8 @@ public class OverworldOresBlockTagData extends BlockTagsProvider {
                 OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get(),
                 OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get(),
                 OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_IRON_ORE.get()
+                OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_TIN_ORE.get()
         );
     }
 }

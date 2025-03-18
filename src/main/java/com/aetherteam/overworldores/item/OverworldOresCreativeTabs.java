@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = OverworldOres.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class OverworldOresCreativeTabs {
     @SubscribeEvent
-    public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
+    public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) { //todo a more efficient way to auto add compat ores in order if they exist or to otherwise skip and continue the order.
         ResourceKey<CreativeModeTab> tab = event.getTabKey();
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey()) {
             event.getEntries().putAfter(new ItemStack(AetherBlocks.GRAVITITE_ORE.get()), new ItemStack(OverworldOresBlocks.HOLYSTONE_COAL_ORE.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
