@@ -1,21 +1,27 @@
 package com.aetherteam.overworldores.data.generators;
 
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.nitrogen.data.providers.NitrogenRecipeProvider;
 import com.aetherteam.overworldores.OverworldOres;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import com.aetherteam.overworldores.integration.ModdedOres;
 import com.google.common.collect.ImmutableList;
+import com.simibubi.create.AllRecipeTypes;
+import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
+import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
-import org.antlr.v4.runtime.misc.Triple;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Consumer;
 
@@ -24,22 +30,23 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
         super(output, OverworldOres.MODID);
     }
 
-    public static final ImmutableList<Triple<ItemLike, ItemLike, Float>> SMELTABLES = ImmutableList.of(
-            new Triple<>(OverworldOresBlocks.HOLYSTONE_COAL_ORE.get(), Items.COAL, 0.1F),
-            new Triple<>(OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(), Items.IRON_INGOT, 0.7F),
-            new Triple<>(OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(), Items.COPPER_INGOT, 0.7F),
-            new Triple<>(OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get(), Items.GOLD_INGOT, 1.0F),
-            new Triple<>(OverworldOresBlocks.HOLYSTONE_REDSTONE_ORE.get(), Items.REDSTONE, 0.7F),
-            new Triple<>(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get(), Items.LAPIS_LAZULI, 0.2F),
-            new Triple<>(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get(), Items.EMERALD, 1.0F),
-            new Triple<>(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get(), Items.DIAMOND, 1.0F)
+    public static final ImmutableList<OreCrafting> ORES = ImmutableList.of(
+            new OreCrafting(OverworldOresBlocks.HOLYSTONE_COAL_ORE.get(), Items.COAL, Items.COAL, 0.1F, 2.25F, 300),
+            new OreCrafting(OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(), Items.IRON_INGOT, Items.RAW_IRON, 0.7F,  2.25F,350),
+            new OreCrafting(OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(), Items.COPPER_INGOT, Items.RAW_COPPER, 0.7F, 7.25F, 350),
+            new OreCrafting(OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get(), Items.GOLD_INGOT, Items.RAW_GOLD, 1.0F, 2.25F, 350),
+            new OreCrafting(OverworldOresBlocks.HOLYSTONE_REDSTONE_ORE.get(), Items.REDSTONE, Items.REDSTONE, 0.7F, 7.5F, 350),
+            new OreCrafting(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get(), Items.LAPIS_LAZULI, Items.LAPIS_LAZULI, 0.2F, 12.5F, 350),
+            new OreCrafting(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get(), Items.EMERALD, Items.EMERALD, 1.0F, 2.25F, 450),
+            new OreCrafting(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get(), Items.DIAMOND, Items.DIAMOND, 1.0F, 2.25F, 450)
     );
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> consumer) { //todo create crushing and other compat recipes
-        for (var entry : SMELTABLES) {
-            this.smeltingOreRecipe(entry.b, entry.a, entry.c).group(entry.b.asItem().builtInRegistryHolder().key().location().getPath()).save(consumer, this.name(getItemName(entry.b) + "_from_smelting_" + getItemName(entry.a)));
-            this.blastingOreRecipe(entry.b, entry.a, entry.c).group(entry.b.asItem().builtInRegistryHolder().key().location().getPath()).save(consumer, this.name(getItemName(entry.b) + "_from_blasting_" + getItemName(entry.a)));
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        for (var entry : ORES) {
+            this.smeltingOreRecipe(entry.processed(), entry.block(), entry.smeltingXp()).group(entry.processed().asItem().builtInRegistryHolder().key().location().getPath()).save(consumer, this.name(getItemName(entry.processed()) + "_from_smelting_" + getItemName(entry.block())));
+            this.blastingOreRecipe(entry.processed(), entry.block(), entry.smeltingXp()).group(entry.processed().asItem().builtInRegistryHolder().key().location().getPath()).save(consumer, this.name(getItemName(entry.processed()) + "_from_blasting_" + getItemName(entry.block())));
+            this.crushingOreRecipe(entry.block(), entry.raw(), entry.crushingAmount(), entry.crushingDuration()).build(consumer);
         }
 
         for (var entry : ModdedOres.ORE_MOD_MAP.entries()) {
@@ -58,4 +65,19 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
                     .build(consumer, this.name(getItemName(result) + "_from_blasting" + "_" + getItemName(itemlike) + "_" + modId));
         }
     }
+
+    protected ProcessingRecipeBuilder<?> crushingOreRecipe(ItemLike ore, ItemLike raw, float expectedAmount, int duration) {
+        ProcessingRecipeBuilder<?> builder = new ProcessingRecipeBuilder<>(((ProcessingRecipeSerializer<?>) AllRecipeTypes.CRUSHING.getSerializer()).getFactory(), this.name(getItemName(ore) + "_crushing"))
+                .duration(duration)
+                .output(raw, Mth.floor(expectedAmount));
+        float extra = expectedAmount - (float) Mth.floor(expectedAmount);
+        if (extra > 0.0F) {
+            builder.output(extra, raw, 1);
+        }
+        builder.output(0.75F, ForgeRegistries.ITEMS.getValue(new ResourceLocation("create", "experience_nugget")), 1);
+        builder.output(0.125F, AetherBlocks.HOLYSTONE.get());
+        return builder;
+    }
+
+    public record OreCrafting(ItemLike block, ItemLike processed, ItemLike raw, float smeltingXp, float crushingAmount, int crushingDuration) { }
 }

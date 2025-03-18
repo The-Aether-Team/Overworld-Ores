@@ -1,0 +1,23 @@
+{
+  "type": "create:crushing",
+  "ingredients": [],
+  "processingTime": 350,
+  "results": [
+    {
+      "count": 12,
+      "item": "minecraft:lapis_lazuli"
+    },
+    {
+      "chance": 0.5,
+      "item": "minecraft:lapis_lazuli"
+    },
+    {
+      "chance": 0.75,
+      "item": "create:experience_nugget"
+    },
+    {
+      "chance": 0.125,
+      "item": "aether:holystone"
+    }
+  ]
+}

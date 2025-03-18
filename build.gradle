@@ -81,6 +81,7 @@ dependencies {
     implementation fg.deobf("curse.maven:immersive-engineering-231951:5224387")
     implementation fg.deobf("curse.maven:railcraft-reborn-901491:6149940")
     implementation fg.deobf("curse.maven:mekanism-268560:6258796")
+    runtimeOnly fg.deobf("curse.maven:jei-238222:6075247")
 }
 
 repositories {
