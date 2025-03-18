@@ -1,8 +1,10 @@
 package com.aetherteam.overworldores.data;
 
+import com.aetherteam.aether.data.generators.tags.AetherItemTagData;
 import com.aetherteam.overworldores.data.generators.*;
 import com.aetherteam.overworldores.data.generators.tags.OverworldOresBiomeTagData;
 import com.aetherteam.overworldores.data.generators.tags.OverworldOresBlockTagData;
+import com.aetherteam.overworldores.data.generators.tags.OverworldOresItemTagData;
 import net.minecraft.SharedConstants;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -34,7 +36,9 @@ public class OverworldOresData {
         generator.addProvider(event.includeServer(), OverworldOresLootTableData.create(packOutput));
         generator.addProvider(event.includeServer(), new OverworldOresRegistrySets(packOutput, lookupProvider));
         // Tags
-        generator.addProvider(event.includeServer(), new OverworldOresBlockTagData(packOutput, lookupProvider, fileHelper));
+        OverworldOresBlockTagData blockTags = new OverworldOresBlockTagData(packOutput, lookupProvider, fileHelper);
+        generator.addProvider(event.includeServer(), blockTags);
+        generator.addProvider(event.includeServer(), new OverworldOresItemTagData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
         generator.addProvider(event.includeServer(), new OverworldOresBiomeTagData(packOutput, lookupProvider, fileHelper));
 
         // pack.mcmeta
