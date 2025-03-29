@@ -40,7 +40,7 @@
                       "count": {
                         "type": "minecraft:uniform",
                         "max": 5.0,
-                        "min": 3.0
+                        "min": 2.0
                       },
                       "function": "minecraft:set_count"
                     },
@@ -50,7 +50,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "thermal:sulfur"
+                  "name": "railcraft:sulfur_dust"
                 },
                 {
                   "type": "minecraft:item",
@@ -63,7 +63,7 @@
                       "count": {
                         "type": "minecraft:uniform",
                         "max": 5.0,
-                        "min": 2.0
+                        "min": 3.0
                       },
                       "function": "minecraft:set_count"
                     },
@@ -73,7 +73,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "railcraft:sulfur_dust"
+                  "name": "thermal:sulfur"
                 }
               ]
             }

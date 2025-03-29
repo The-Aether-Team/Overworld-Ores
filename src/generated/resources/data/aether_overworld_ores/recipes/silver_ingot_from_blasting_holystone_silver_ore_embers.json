@@ -1,0 +1,24 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "embers"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:blasting",
+        "category": "misc",
+        "cookingtime": 100,
+        "experience": 0.6,
+        "group": "silver_ingot",
+        "ingredient": {
+          "item": "aether_overworld_ores:holystone_silver_ore"
+        },
+        "result": "embers:silver_ingot"
+      }
+    }
+  ]
+}

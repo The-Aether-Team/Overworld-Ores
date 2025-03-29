@@ -73,7 +73,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "immersiveengineering:raw_nickel"
+                  "name": "railcraft:nickel_raw"
                 },
                 {
                   "type": "minecraft:item",
@@ -96,7 +96,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "railcraft:nickel_raw"
+                  "name": "immersiveengineering:raw_nickel"
                 }
               ]
             }

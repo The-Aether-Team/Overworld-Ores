@@ -30,22 +30,36 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
         super(output, OverworldOres.MODID);
     }
 
-    public static final ImmutableList<OreCrafting> ORES = ImmutableList.of(
-            new OreCrafting(OverworldOresBlocks.HOLYSTONE_COAL_ORE.get(), Items.COAL, Items.COAL, 0.1F, 2.25F, 300),
-            new OreCrafting(OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(), Items.IRON_INGOT, Items.RAW_IRON, 0.7F,  2.25F,350),
-            new OreCrafting(OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(), Items.COPPER_INGOT, Items.RAW_COPPER, 0.7F, 7.25F, 350),
-            new OreCrafting(OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get(), Items.GOLD_INGOT, Items.RAW_GOLD, 1.0F, 2.25F, 350),
-            new OreCrafting(OverworldOresBlocks.HOLYSTONE_REDSTONE_ORE.get(), Items.REDSTONE, Items.REDSTONE, 0.7F, 7.5F, 350),
-            new OreCrafting(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get(), Items.LAPIS_LAZULI, Items.LAPIS_LAZULI, 0.2F, 12.5F, 350),
-            new OreCrafting(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get(), Items.EMERALD, Items.EMERALD, 1.0F, 2.25F, 450),
-            new OreCrafting(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get(), Items.DIAMOND, Items.DIAMOND, 1.0F, 2.25F, 450)
+    public static final ImmutableList<OreSmelting> SMELTING = ImmutableList.of(
+            new OreSmelting(OverworldOresBlocks.HOLYSTONE_COAL_ORE.get(), Items.COAL, 0.1F),
+            new OreSmelting(OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(), Items.IRON_INGOT, 0.7F),
+            new OreSmelting(OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(), Items.COPPER_INGOT, 0.7F),
+            new OreSmelting(OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get(), Items.GOLD_INGOT, 1.0F),
+            new OreSmelting(OverworldOresBlocks.HOLYSTONE_REDSTONE_ORE.get(), Items.REDSTONE, 0.7F),
+            new OreSmelting(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get(), Items.LAPIS_LAZULI, 0.2F),
+            new OreSmelting(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get(), Items.EMERALD, 1.0F),
+            new OreSmelting(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get(), Items.DIAMOND, 1.0F)
+    );
+
+    public static final ImmutableList<OreCrushing> CRUSHING = ImmutableList.of(
+            new OreCrushing(OverworldOresBlocks.HOLYSTONE_COAL_ORE.get(), Items.COAL, 2.25F, 300),
+            new OreCrushing(OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(), Items.RAW_IRON,  2.25F,350),
+            new OreCrushing(OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(), Items.RAW_COPPER, 7.25F, 350),
+            new OreCrushing(OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get(), Items.RAW_GOLD, 2.25F, 350),
+            new OreCrushing(OverworldOresBlocks.HOLYSTONE_REDSTONE_ORE.get(), Items.REDSTONE, 7.5F, 350),
+            new OreCrushing(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get(), Items.LAPIS_LAZULI, 12.5F, 350),
+            new OreCrushing(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get(), Items.EMERALD, 2.25F, 450),
+            new OreCrushing(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get(), Items.DIAMOND, 2.25F, 450),
+            new OreCrushing(OverworldOresBlocks.HOLYSTONE_SULFUR_ORE.get(), ModdedOres.getItem("thermal", "sulfur").get(), 2.25F, 350)
     );
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
-        for (var entry : ORES) {
+        for (var entry : SMELTING) {
             this.smeltingOreRecipe(entry.processed(), entry.block(), entry.smeltingXp()).group(entry.processed().asItem().builtInRegistryHolder().key().location().getPath()).save(consumer, this.name(getItemName(entry.processed()) + "_from_smelting_" + getItemName(entry.block())));
             this.blastingOreRecipe(entry.processed(), entry.block(), entry.smeltingXp()).group(entry.processed().asItem().builtInRegistryHolder().key().location().getPath()).save(consumer, this.name(getItemName(entry.processed()) + "_from_blasting_" + getItemName(entry.block())));
+        }
+        for (var entry : CRUSHING) {
             this.crushingOreRecipe(entry.block(), entry.raw(), entry.crushingAmount(), entry.crushingDuration()).build(consumer);
         }
 
@@ -78,9 +92,11 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
             builder.output(extra, raw, 1); //todo varying count
         }
         builder.output(0.75F, ForgeRegistries.ITEMS.getValue(new ResourceLocation("create", "experience_nugget")), 1);
-        builder.output(0.125F, AetherBlocks.HOLYSTONE.get());
+        builder.output(0.12F, AetherBlocks.HOLYSTONE.get());
         return builder;
     }
 
-    public record OreCrafting(ItemLike block, ItemLike processed, ItemLike raw, float smeltingXp, float crushingAmount, int crushingDuration) { }
+    public record OreSmelting(ItemLike block, ItemLike processed, float smeltingXp) { }
+
+    public record OreCrushing(ItemLike block, ItemLike raw, float crushingAmount, int crushingDuration) { }
 }

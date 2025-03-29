@@ -1,0 +1,24 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "embers"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:smelting",
+        "category": "misc",
+        "cookingtime": 200,
+        "experience": 0.6,
+        "group": "lead_ingot",
+        "ingredient": {
+          "item": "aether_overworld_ores:holystone_lead_ore"
+        },
+        "result": "embers:lead_ingot"
+      }
+    }
+  ]
+}
