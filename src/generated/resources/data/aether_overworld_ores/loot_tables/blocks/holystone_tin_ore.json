@@ -27,19 +27,78 @@
               "name": "aether_overworld_ores:holystone_tin_ore"
             },
             {
-              "type": "minecraft:tag",
-              "expand": true,
-              "functions": [
+              "type": "aether_overworld_ores:random",
+              "children": [
                 {
-                  "function": "minecraft:explosion_decay"
+                  "type": "minecraft:item",
+                  "functions": [
+                    {
+                      "function": "minecraft:explosion_decay"
+                    },
+                    {
+                      "add": false,
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "max": 1.0,
+                        "min": 1.0
+                      },
+                      "function": "minecraft:set_count"
+                    },
+                    {
+                      "enchantment": "minecraft:fortune",
+                      "formula": "minecraft:ore_drops",
+                      "function": "minecraft:apply_bonus"
+                    }
+                  ],
+                  "name": "mekanism:raw_tin"
                 },
                 {
-                  "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:ore_drops",
-                  "function": "minecraft:apply_bonus"
+                  "type": "minecraft:item",
+                  "functions": [
+                    {
+                      "function": "minecraft:explosion_decay"
+                    },
+                    {
+                      "add": false,
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "max": 1.0,
+                        "min": 1.0
+                      },
+                      "function": "minecraft:set_count"
+                    },
+                    {
+                      "enchantment": "minecraft:fortune",
+                      "formula": "minecraft:ore_drops",
+                      "function": "minecraft:apply_bonus"
+                    }
+                  ],
+                  "name": "thermal:raw_tin"
+                },
+                {
+                  "type": "minecraft:item",
+                  "functions": [
+                    {
+                      "function": "minecraft:explosion_decay"
+                    },
+                    {
+                      "add": false,
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "max": 1.0,
+                        "min": 1.0
+                      },
+                      "function": "minecraft:set_count"
+                    },
+                    {
+                      "enchantment": "minecraft:fortune",
+                      "formula": "minecraft:ore_drops",
+                      "function": "minecraft:apply_bonus"
+                    }
+                  ],
+                  "name": "railcraft:tin_raw"
                 }
-              ],
-              "name": "forge:raw_materials/tin"
+              ]
             }
           ]
         }

@@ -3,6 +3,7 @@ package com.aetherteam.overworldores;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import com.aetherteam.overworldores.block.OverworldOresItems;
 import com.aetherteam.overworldores.data.OverworldOresData;
+import com.aetherteam.overworldores.loot.entries.OverworldOresLootPoolEntries;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -22,6 +23,7 @@ public class OverworldOres {
         DeferredRegister<?>[] registers = {
                 OverworldOresBlocks.BLOCKS,
                 OverworldOresItems.ITEMS,
+                OverworldOresLootPoolEntries.LOOT_POOL_ENTRY_TYPES,
         };
 
         for (DeferredRegister<?> register : registers) {

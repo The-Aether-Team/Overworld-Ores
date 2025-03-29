@@ -1,0 +1,24 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "railcraft"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:smelting",
+        "category": "misc",
+        "cookingtime": 200,
+        "experience": 1.0,
+        "group": "silver_ingot",
+        "ingredient": {
+          "item": "aether_overworld_ores:holystone_silver_ore"
+        },
+        "result": "railcraft:silver_ingot"
+      }
+    }
+  ]
+}

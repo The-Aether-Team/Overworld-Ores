@@ -1,6 +1,10 @@
 {
   "type": "create:crushing",
-  "ingredients": [],
+  "ingredients": [
+    {
+      "item": "aether_overworld_ores:holystone_lapis_ore"
+    }
+  ],
   "processingTime": 350,
   "results": [
     {

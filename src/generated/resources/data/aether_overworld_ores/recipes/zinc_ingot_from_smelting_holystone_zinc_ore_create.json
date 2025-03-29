@@ -1,0 +1,24 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "create"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:smelting",
+        "category": "misc",
+        "cookingtime": 200,
+        "experience": 1.0,
+        "group": "zinc_ingot",
+        "ingredient": {
+          "item": "aether_overworld_ores:holystone_zinc_ore"
+        },
+        "result": "create:zinc_ingot"
+      }
+    }
+  ]
+}

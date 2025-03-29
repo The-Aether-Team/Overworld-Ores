@@ -1,0 +1,24 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "thermal"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:blasting",
+        "category": "misc",
+        "cookingtime": 100,
+        "experience": 0.6,
+        "group": "nickel_ingot",
+        "ingredient": {
+          "item": "aether_overworld_ores:holystone_nickel_ore"
+        },
+        "result": "thermal:nickel_ingot"
+      }
+    }
+  ]
+}

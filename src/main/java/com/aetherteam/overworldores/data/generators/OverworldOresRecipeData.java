@@ -50,29 +50,32 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
         }
 
         for (var entry : ModdedOres.ORE_MOD_MAP.entries()) {
-            String modId = entry.getValue().modId();
-            ItemLike itemlike = entry.getKey().holystoneOreBlock().get();
-            ItemLike result = entry.getValue().ingot().get();
-            float experience = entry.getValue().xp();
-            String group = entry.getValue().ingot().get().asItem().builtInRegistryHolder().key().location().getPath();
-            ConditionalRecipe.builder()
-                    .addCondition(new ModLoadedCondition(modId))
-                    .addRecipe(SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 200, RecipeSerializer.SMELTING_RECIPE).group(group).unlockedBy(getHasName(itemlike), has(itemlike))::save)
-                    .build(consumer, this.name(getItemName(result) + "_from_smelting" + "_" + getItemName(itemlike) + "_" + modId));
-            ConditionalRecipe.builder()
-                    .addCondition(new ModLoadedCondition(modId))
-                    .addRecipe(SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 100, RecipeSerializer.BLASTING_RECIPE).group(group).unlockedBy(getHasName(itemlike), has(itemlike))::save)
-                    .build(consumer, this.name(getItemName(result) + "_from_blasting" + "_" + getItemName(itemlike) + "_" + modId));
+            if (entry.getValue().ingot().get() != Items.AIR) {
+                String modId = entry.getValue().modId();
+                ItemLike itemlike = entry.getKey().holystoneOreBlock().get();
+                ItemLike result = entry.getValue().ingot().get();
+                float experience = entry.getValue().xp();
+                String group = entry.getValue().ingot().get().asItem().builtInRegistryHolder().key().location().getPath();
+                ConditionalRecipe.builder()
+                        .addCondition(new ModLoadedCondition(modId))
+                        .addRecipe(SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 200, RecipeSerializer.SMELTING_RECIPE).group(group).unlockedBy(getHasName(itemlike), has(itemlike))::save)
+                        .build(consumer, this.name(getItemName(result) + "_from_smelting" + "_" + getItemName(itemlike) + "_" + modId));
+                ConditionalRecipe.builder()
+                        .addCondition(new ModLoadedCondition(modId))
+                        .addRecipe(SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 100, RecipeSerializer.BLASTING_RECIPE).group(group).unlockedBy(getHasName(itemlike), has(itemlike))::save)
+                        .build(consumer, this.name(getItemName(result) + "_from_blasting" + "_" + getItemName(itemlike) + "_" + modId));
+            }
         }
     }
 
     protected ProcessingRecipeBuilder<?> crushingOreRecipe(ItemLike ore, ItemLike raw, float expectedAmount, int duration) {
         ProcessingRecipeBuilder<?> builder = new ProcessingRecipeBuilder<>(((ProcessingRecipeSerializer<?>) AllRecipeTypes.CRUSHING.getSerializer()).getFactory(), this.name(getItemName(ore) + "_crushing"))
+                .withItemIngredients(Ingredient.of(ore))
                 .duration(duration)
                 .output(raw, Mth.floor(expectedAmount));
         float extra = expectedAmount - (float) Mth.floor(expectedAmount);
         if (extra > 0.0F) {
-            builder.output(extra, raw, 1);
+            builder.output(extra, raw, 1); //todo varying count
         }
         builder.output(0.75F, ForgeRegistries.ITEMS.getValue(new ResourceLocation("create", "experience_nugget")), 1);
         builder.output(0.125F, AetherBlocks.HOLYSTONE.get());

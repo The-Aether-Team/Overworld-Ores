@@ -1,6 +1,12 @@
-// 1.20.1	2025-03-18T13:26:35.2889541	Tags for minecraft:block mod id aether
-85683e07238fb8c6f4014ebc29469936fb2c6324 data/aether/tags/blocks/treated_as_aether_block.json
+// 1.20.1	2025-03-28T15:44:58.9630869	Tags for minecraft:block mod id aether
+0b66f81793063341886fedc9464cfac23d656858 data/aether/tags/blocks/treated_as_aether_block.json
+f015b65594de56d9f06a985aedde43c284fdef5f data/forge/tags/blocks/ores/lead.json
+b6e1f114ad282cd01d5b58df225153809485c60b data/forge/tags/blocks/ores/nickel.json
+386693c0b168c49b2a1a74fa9c6d8ebc5308bb34 data/forge/tags/blocks/ores/silver.json
+e3ea082aaf42fe97634107a11990b7d1d912c58d data/forge/tags/blocks/ores/sulfur.json
 27901adfbc1b571c59fab541ad3d560d0ec4c420 data/forge/tags/blocks/ores/tin.json
+014badf742c4b277e1bc694181eb6a6ed7c77218 data/forge/tags/blocks/ores/uranium.json
+7aa533df9aef4ff227994e97ea9f91a7db91c5d8 data/forge/tags/blocks/ores/zinc.json
 cac76fcb1c8cbee15b8c0ec41b58ab871e8dee84 data/forge/tags/blocks/ore_rates/dense.json
 1dae3bfe9754bf3c16155d4b8a895d1c26c5e39e data/forge/tags/blocks/ore_rates/singular.json
 aed75ba2b16a959796c4867a351d226a5c15ff5b data/minecraft/tags/blocks/coal_ores.json
@@ -10,7 +16,7 @@ ed2ec903ec1ac9d1dec6819e6dfb56a616eae867 data/minecraft/tags/blocks/copper_ores.
 722b81f73cb34431fa655db3d7a0653e39e275d5 data/minecraft/tags/blocks/gold_ores.json
 11ac536f96673acdde496c8d2510714755d0fdfe data/minecraft/tags/blocks/iron_ores.json
 1f8770dd4fe146ad684db776ab11b3a692b60670 data/minecraft/tags/blocks/lapis_ores.json
-85683e07238fb8c6f4014ebc29469936fb2c6324 data/minecraft/tags/blocks/mineable/pickaxe.json
+0b66f81793063341886fedc9464cfac23d656858 data/minecraft/tags/blocks/mineable/pickaxe.json
 2647e040233237dbb71fce646b2f1985fa8f6871 data/minecraft/tags/blocks/needs_iron_tool.json
 f836b03d6de088395fafc5ac184b739a5c309b2c data/minecraft/tags/blocks/needs_stone_tool.json
 7dc8ab204d4df4b035c55e30545b1ae575f536fd data/minecraft/tags/blocks/redstone_ores.json

@@ -1,6 +1,10 @@
 {
   "type": "create:crushing",
-  "ingredients": [],
+  "ingredients": [
+    {
+      "item": "aether_overworld_ores:holystone_copper_ore"
+    }
+  ],
   "processingTime": 350,
   "results": [
     {
