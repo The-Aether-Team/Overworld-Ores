@@ -1,5 +1,6 @@
 package com.aetherteam.overworldores.data.generators.loot;
 
+import com.aetherteam.aether.Aether;
 import com.aetherteam.nitrogen.data.providers.NitrogenBlockLootSubProvider;
 import com.aetherteam.overworldores.OverworldOres;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
@@ -53,6 +54,7 @@ public class OverworldOresBlockLoot extends NitrogenBlockLootSubProvider {
             Block block = ore.getKey().holystoneOreBlock().get();
             RandomEntry.Builder builder = new RandomEntry.Builder();
             for (ModdedOres.OreEntry oreEntry : ore.getValue()) {
+                Aether.LOGGER.info(oreEntry.raw().get().asItem().getDescriptionId());
                 builder = builder.another(this.applyExplosionDecay(block, LootItem.lootTableItem(oreEntry.raw().get()))
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(oreEntry.dropCount().getMinValue(), oreEntry.dropCount().getMaxValue())))
                         .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)));

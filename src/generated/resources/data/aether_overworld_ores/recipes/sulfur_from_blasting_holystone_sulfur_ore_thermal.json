@@ -12,7 +12,7 @@
         "type": "minecraft:blasting",
         "category": "misc",
         "cookingtime": 100,
-        "experience": 0.6,
+        "experience": 0.5,
         "group": "sulfur",
         "ingredient": {
           "item": "aether_overworld_ores:holystone_sulfur_ore"

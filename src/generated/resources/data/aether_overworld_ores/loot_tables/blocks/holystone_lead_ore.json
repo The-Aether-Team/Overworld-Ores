@@ -50,7 +50,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "mekanism:raw_lead"
+                  "name": "thermal:raw_lead"
                 },
                 {
                   "type": "minecraft:item",
@@ -73,7 +73,30 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "immersiveengineering:raw_lead"
+                  "name": "railcraft:lead_raw"
+                },
+                {
+                  "type": "minecraft:item",
+                  "functions": [
+                    {
+                      "function": "minecraft:explosion_decay"
+                    },
+                    {
+                      "add": false,
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "max": 1.0,
+                        "min": 1.0
+                      },
+                      "function": "minecraft:set_count"
+                    },
+                    {
+                      "enchantment": "minecraft:fortune",
+                      "formula": "minecraft:ore_drops",
+                      "function": "minecraft:apply_bonus"
+                    }
+                  ],
+                  "name": "mekanism:raw_lead"
                 },
                 {
                   "type": "minecraft:item",
@@ -119,30 +142,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "thermal:raw_lead"
-                },
-                {
-                  "type": "minecraft:item",
-                  "functions": [
-                    {
-                      "function": "minecraft:explosion_decay"
-                    },
-                    {
-                      "add": false,
-                      "count": {
-                        "type": "minecraft:uniform",
-                        "max": 1.0,
-                        "min": 1.0
-                      },
-                      "function": "minecraft:set_count"
-                    },
-                    {
-                      "enchantment": "minecraft:fortune",
-                      "formula": "minecraft:ore_drops",
-                      "function": "minecraft:apply_bonus"
-                    }
-                  ],
-                  "name": "railcraft:lead_raw"
+                  "name": "immersiveengineering:raw_lead"
                 }
               ]
             }

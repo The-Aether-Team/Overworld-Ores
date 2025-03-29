@@ -12,7 +12,7 @@
         "type": "minecraft:smelting",
         "category": "misc",
         "cookingtime": 200,
-        "experience": 0.6,
+        "experience": 1.0,
         "group": "nickel_ingot",
         "ingredient": {
           "item": "aether_overworld_ores:holystone_nickel_ore"

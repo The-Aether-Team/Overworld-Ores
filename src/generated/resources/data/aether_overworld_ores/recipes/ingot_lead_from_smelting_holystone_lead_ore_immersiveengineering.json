@@ -12,7 +12,7 @@
         "type": "minecraft:smelting",
         "category": "misc",
         "cookingtime": 200,
-        "experience": 0.6,
+        "experience": 0.7,
         "group": "ingot_lead",
         "ingredient": {
           "item": "aether_overworld_ores:holystone_lead_ore"

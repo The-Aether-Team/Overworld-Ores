@@ -12,7 +12,7 @@
         "type": "minecraft:blasting",
         "category": "misc",
         "cookingtime": 100,
-        "experience": 0.6,
+        "experience": 0.7,
         "group": "silver_ingot",
         "ingredient": {
           "item": "aether_overworld_ores:holystone_silver_ore"

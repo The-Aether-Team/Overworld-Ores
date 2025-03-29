@@ -50,7 +50,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "create:raw_zinc"
+                  "name": "railcraft:zinc_raw"
                 },
                 {
                   "type": "minecraft:item",
@@ -73,7 +73,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "railcraft:zinc_raw"
+                  "name": "create:raw_zinc"
                 }
               ]
             }
