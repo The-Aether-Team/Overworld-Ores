@@ -1,10 +1,12 @@
 package com.aetherteam.overworldores.item;
 
+import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.overworldores.OverworldOres;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import com.aetherteam.overworldores.integration.ModdedOres;
+import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
@@ -38,7 +40,7 @@ public class OverworldOresCreativeTabs {
                 Pair.of(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE, (v) -> true),
                 Pair.of(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE, (v) -> true)
         ));
-        for (Map.Entry<ModdedOres.OreKey, Collection<ModdedOres.OreEntry>> entry : ModdedOres.ORE_MOD_MAP.asMap().entrySet()) {
+        for (Map.Entry<ModdedOres.OreKey, Collection<ModdedOres.OreEntry>> entry : Lists.reverse(ModdedOres.ORE_MOD_MAP.asMap().entrySet().stream().toList())) {
             Predicate<Void> predicate = null;
             for (ModdedOres.OreEntry value : entry.getValue()) {
                 String modId = value.modId();
@@ -55,6 +57,7 @@ public class OverworldOresCreativeTabs {
     @SubscribeEvent
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
         ResourceKey<CreativeModeTab> tab = event.getTabKey();
+        Aether.LOGGER.info(ORDER.stream().map((a) -> a.getFirst().get()).toList().toString());
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey()) {
             Block after = null;
             for (int i = 1; i < ORDER.size(); i++) {
