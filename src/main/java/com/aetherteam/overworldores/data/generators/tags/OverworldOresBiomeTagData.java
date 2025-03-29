@@ -58,5 +58,41 @@ public class OverworldOresBiomeTagData extends BiomeTagsProvider {
                 .addOptional(AetherBiomes.SKYROOT_GROVE.location())
                 .addOptional(AetherBiomes.SKYROOT_WOODLAND.location())
                 .addOptional(AetherBiomes.SKYROOT_FOREST.location());
+
+        this.tag(OverworldOresTags.Biomes.HAS_HOLYSTONE_TIN_ORE)
+                .addOptional(AetherBiomes.SKYROOT_MEADOW.location())
+                .addOptional(AetherBiomes.SKYROOT_GROVE.location())
+                .addOptional(AetherBiomes.SKYROOT_WOODLAND.location())
+                .addOptional(AetherBiomes.SKYROOT_FOREST.location());
+        this.tag(OverworldOresTags.Biomes.HAS_HOLYSTONE_LEAD_ORE)
+                .addOptional(AetherBiomes.SKYROOT_MEADOW.location())
+                .addOptional(AetherBiomes.SKYROOT_GROVE.location())
+                .addOptional(AetherBiomes.SKYROOT_WOODLAND.location())
+                .addOptional(AetherBiomes.SKYROOT_FOREST.location());
+        this.tag(OverworldOresTags.Biomes.HAS_HOLYSTONE_SILVER_ORE)
+                .addOptional(AetherBiomes.SKYROOT_MEADOW.location())
+                .addOptional(AetherBiomes.SKYROOT_GROVE.location())
+                .addOptional(AetherBiomes.SKYROOT_WOODLAND.location())
+                .addOptional(AetherBiomes.SKYROOT_FOREST.location());
+        this.tag(OverworldOresTags.Biomes.HAS_HOLYSTONE_NICKEL_ORE)
+                .addOptional(AetherBiomes.SKYROOT_MEADOW.location())
+                .addOptional(AetherBiomes.SKYROOT_GROVE.location())
+                .addOptional(AetherBiomes.SKYROOT_WOODLAND.location())
+                .addOptional(AetherBiomes.SKYROOT_FOREST.location());
+        this.tag(OverworldOresTags.Biomes.HAS_HOLYSTONE_ZINC_ORE)
+                .addOptional(AetherBiomes.SKYROOT_MEADOW.location())
+                .addOptional(AetherBiomes.SKYROOT_GROVE.location())
+                .addOptional(AetherBiomes.SKYROOT_WOODLAND.location())
+                .addOptional(AetherBiomes.SKYROOT_FOREST.location());
+        this.tag(OverworldOresTags.Biomes.HAS_HOLYSTONE_URANIUM_ORE)
+                .addOptional(AetherBiomes.SKYROOT_MEADOW.location())
+                .addOptional(AetherBiomes.SKYROOT_GROVE.location())
+                .addOptional(AetherBiomes.SKYROOT_WOODLAND.location())
+                .addOptional(AetherBiomes.SKYROOT_FOREST.location());
+        this.tag(OverworldOresTags.Biomes.HAS_HOLYSTONE_SULFUR_ORE)
+                .addOptional(AetherBiomes.SKYROOT_MEADOW.location())
+                .addOptional(AetherBiomes.SKYROOT_GROVE.location())
+                .addOptional(AetherBiomes.SKYROOT_WOODLAND.location())
+                .addOptional(AetherBiomes.SKYROOT_FOREST.location());
     }
 }

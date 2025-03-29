@@ -16,6 +16,14 @@ public class OverworldOresTags {
         public static final TagKey<Biome> HAS_HOLYSTONE_EMERALD_ORE = tag("has_holystone_emerald_ore");
         public static final TagKey<Biome> HAS_HOLYSTONE_DIAMOND_ORE = tag("has_holystone_diamond_ore");
 
+        public static final TagKey<Biome> HAS_HOLYSTONE_TIN_ORE = tag("has_holystone_tin_ore");
+        public static final TagKey<Biome> HAS_HOLYSTONE_LEAD_ORE = tag("has_holystone_lead_ore");
+        public static final TagKey<Biome> HAS_HOLYSTONE_SILVER_ORE = tag("has_holystone_silver_ore");
+        public static final TagKey<Biome> HAS_HOLYSTONE_NICKEL_ORE = tag("has_holystone_nickel_ore");
+        public static final TagKey<Biome> HAS_HOLYSTONE_ZINC_ORE = tag("has_holystone_zinc_ore");
+        public static final TagKey<Biome> HAS_HOLYSTONE_URANIUM_ORE = tag("has_holystone_uranium_ore");
+        public static final TagKey<Biome> HAS_HOLYSTONE_SULFUR_ORE = tag("has_holystone_sulfur_ore");
+
         private static TagKey<Biome> tag(String name) {
             return TagKey.create(Registries.BIOME, new ResourceLocation(OverworldOres.MODID, name));
         }

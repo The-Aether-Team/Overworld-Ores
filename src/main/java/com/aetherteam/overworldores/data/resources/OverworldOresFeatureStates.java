@@ -13,4 +13,12 @@ public class OverworldOresFeatureStates {
     public static final BlockState HOLYSTONE_LAPIS_ORE = OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get().defaultBlockState();
     public static final BlockState HOLYSTONE_EMERALD_ORE = OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get().defaultBlockState();
     public static final BlockState HOLYSTONE_DIAMOND_ORE = OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get().defaultBlockState();
+
+    public static final BlockState HOLYSTONE_TIN_ORE = OverworldOresBlocks.HOLYSTONE_TIN_ORE.get().defaultBlockState();
+    public static final BlockState HOLYSTONE_LEAD_ORE = OverworldOresBlocks.HOLYSTONE_LEAD_ORE.get().defaultBlockState();
+    public static final BlockState HOLYSTONE_SILVER_ORE = OverworldOresBlocks.HOLYSTONE_SILVER_ORE.get().defaultBlockState();
+    public static final BlockState HOLYSTONE_NICKEL_ORE = OverworldOresBlocks.HOLYSTONE_NICKEL_ORE.get().defaultBlockState();
+    public static final BlockState HOLYSTONE_ZINC_ORE = OverworldOresBlocks.HOLYSTONE_ZINC_ORE.get().defaultBlockState();
+    public static final BlockState HOLYSTONE_URANIUM_ORE = OverworldOresBlocks.HOLYSTONE_URANIUM_ORE.get().defaultBlockState();
+    public static final BlockState HOLYSTONE_SULFUR_ORE = OverworldOresBlocks.HOLYSTONE_SULFUR_ORE.get().defaultBlockState();
 }

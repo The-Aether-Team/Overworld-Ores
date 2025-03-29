@@ -1,5 +1,5 @@
 {
-  "feature": "aether_overworld_ores:holystone_redstone_coal",
+  "feature": "aether_overworld_ores:holystone_ore_tin",
   "placement": [
     {
       "type": "minecraft:count",
@@ -13,7 +13,7 @@
       "height": {
         "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 44
+          "absolute": 96
         },
         "min_inclusive": {
           "above_bottom": 0
@@ -22,6 +22,14 @@
     },
     {
       "type": "minecraft:biome"
+    },
+    {
+      "type": "aether_overworld_ores:mod_filter",
+      "mods": [
+        "thermal",
+        "railcraft",
+        "mekanism"
+      ]
     }
   ]
 }

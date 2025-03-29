@@ -1,9 +1,9 @@
 {
-  "feature": "aether_overworld_ores:holystone_emerald_coal",
+  "feature": "aether_overworld_ores:holystone_ore_uranium",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 4
+      "count": 8
     },
     {
       "type": "minecraft:in_square"
@@ -11,17 +11,24 @@
     {
       "type": "minecraft:height_range",
       "height": {
-        "type": "minecraft:trapezoid",
+        "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 190
+          "absolute": 96
         },
         "min_inclusive": {
-          "absolute": -16
+          "above_bottom": 0
         }
       }
     },
     {
       "type": "minecraft:biome"
+    },
+    {
+      "type": "aether_overworld_ores:mod_filter",
+      "mods": [
+        "mekanism",
+        "immersiveengineering"
+      ]
     }
   ]
 }
