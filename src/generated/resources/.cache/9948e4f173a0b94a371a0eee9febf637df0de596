@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-28T15:44:58.9630869	Tags for minecraft:block mod id aether
+// 1.20.1	2025-03-28T17:56:55.6559575	Tags for minecraft:block mod id aether_overworld_ores
 0b66f81793063341886fedc9464cfac23d656858 data/aether/tags/blocks/treated_as_aether_block.json
 f015b65594de56d9f06a985aedde43c284fdef5f data/forge/tags/blocks/ores/lead.json
 b6e1f114ad282cd01d5b58df225153809485c60b data/forge/tags/blocks/ores/nickel.json
@@ -7,8 +7,8 @@ e3ea082aaf42fe97634107a11990b7d1d912c58d data/forge/tags/blocks/ores/sulfur.json
 27901adfbc1b571c59fab541ad3d560d0ec4c420 data/forge/tags/blocks/ores/tin.json
 014badf742c4b277e1bc694181eb6a6ed7c77218 data/forge/tags/blocks/ores/uranium.json
 7aa533df9aef4ff227994e97ea9f91a7db91c5d8 data/forge/tags/blocks/ores/zinc.json
-cac76fcb1c8cbee15b8c0ec41b58ab871e8dee84 data/forge/tags/blocks/ore_rates/dense.json
-1dae3bfe9754bf3c16155d4b8a895d1c26c5e39e data/forge/tags/blocks/ore_rates/singular.json
+dcfb0aa19becfd5c2b81927e4376930e28375881 data/forge/tags/blocks/ore_rates/dense.json
+5412a779b7ea0cfcfe15a65b77436b10830cdf47 data/forge/tags/blocks/ore_rates/singular.json
 aed75ba2b16a959796c4867a351d226a5c15ff5b data/minecraft/tags/blocks/coal_ores.json
 ed2ec903ec1ac9d1dec6819e6dfb56a616eae867 data/minecraft/tags/blocks/copper_ores.json
 0437eb26d63716ee5a721b9e8e857eabaa68ac52 data/minecraft/tags/blocks/diamond_ores.json
@@ -18,6 +18,6 @@ ed2ec903ec1ac9d1dec6819e6dfb56a616eae867 data/minecraft/tags/blocks/copper_ores.
 1f8770dd4fe146ad684db776ab11b3a692b60670 data/minecraft/tags/blocks/lapis_ores.json
 0b66f81793063341886fedc9464cfac23d656858 data/minecraft/tags/blocks/mineable/pickaxe.json
 2647e040233237dbb71fce646b2f1985fa8f6871 data/minecraft/tags/blocks/needs_iron_tool.json
-f836b03d6de088395fafc5ac184b739a5c309b2c data/minecraft/tags/blocks/needs_stone_tool.json
+fab29213cbe4e4b2bde68cdd3b35200bfcf89383 data/minecraft/tags/blocks/needs_stone_tool.json
 7dc8ab204d4df4b035c55e30545b1ae575f536fd data/minecraft/tags/blocks/redstone_ores.json
-e661d81dfa68e9d9079de412a735669734727c16 data/minecraft/tags/blocks/snaps_goat_horn.json
+556f27a5f1d7c97934fbce63dee66c539f45e490 data/minecraft/tags/blocks/snaps_goat_horn.json

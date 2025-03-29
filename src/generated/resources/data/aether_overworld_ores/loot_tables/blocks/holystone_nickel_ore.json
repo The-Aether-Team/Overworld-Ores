@@ -50,7 +50,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "thermal:raw_nickel"
+                  "name": "immersiveengineering:raw_nickel"
                 },
                 {
                   "type": "minecraft:item",
@@ -96,7 +96,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "immersiveengineering:raw_nickel"
+                  "name": "thermal:raw_nickel"
                 }
               ]
             }

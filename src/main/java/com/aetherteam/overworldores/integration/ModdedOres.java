@@ -26,7 +26,7 @@ public class ModdedOres {
                 new OreEntry("thermal", getItem("thermal", "raw_tin"), ConstantInt.of(1), getItem("thermal", "tin_ingot"), 0.6F),
                 new OreEntry("railcraft", getItem("railcraft", "tin_raw"), ConstantInt.of(1), getItem("railcraft", "tin_ingot"), 1.0F),
                 new OreEntry("mekanism", getItem("mekanism", "raw_tin"), ConstantInt.of(1), getItem("mekanism", "ingot_tin"), 0.6F)));
-        ORE_MOD_MAP.putAll(new OreKey("lead", OverworldOresBlocks.HOLYSTONE_LEAD_ORE), List.of( //todo add these new ores to tags and stuff.
+        ORE_MOD_MAP.putAll(new OreKey("lead", OverworldOresBlocks.HOLYSTONE_LEAD_ORE), List.of(
                 new OreEntry("thermal", getItem("thermal", "raw_lead"), ConstantInt.of(1), getItem("thermal", "lead_ingot"), 0.6F),
                 new OreEntry("railcraft", getItem("railcraft", "lead_raw"), ConstantInt.of(1), getItem("railcraft", "lead_ingot"), 1.0F),
                 new OreEntry("mekanism", getItem("mekanism", "raw_lead"), ConstantInt.of(1), getItem("mekanism", "ingot_lead"), 0.6F),

@@ -89,7 +89,7 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
                 .output(raw, Mth.floor(expectedAmount));
         float extra = expectedAmount - (float) Mth.floor(expectedAmount);
         if (extra > 0.0F) {
-            builder.output(extra, raw, 1); //todo varying count
+            builder.output(extra, raw, 1);
         }
         builder.output(0.75F, ForgeRegistries.ITEMS.getValue(new ResourceLocation("create", "experience_nugget")), 1);
         builder.output(0.12F, AetherBlocks.HOLYSTONE.get());

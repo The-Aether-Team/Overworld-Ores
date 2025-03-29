@@ -5,6 +5,11 @@
     "aether_overworld_ores:holystone_emerald_ore",
     "aether_overworld_ores:holystone_gold_ore",
     "aether_overworld_ores:holystone_iron_ore",
-    "aether_overworld_ores:holystone_tin_ore"
+    "aether_overworld_ores:holystone_tin_ore",
+    "aether_overworld_ores:holystone_lead_ore",
+    "aether_overworld_ores:holystone_silver_ore",
+    "aether_overworld_ores:holystone_nickel_ore",
+    "aether_overworld_ores:holystone_zinc_ore",
+    "aether_overworld_ores:holystone_uranium_ore"
   ]
 }

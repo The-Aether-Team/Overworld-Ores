@@ -1,7 +1,7 @@
 package com.aetherteam.overworldores.data.generators.tags;
 
-import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.overworldores.OverworldOres;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import com.aetherteam.overworldores.integration.ModdedOres;
 import net.minecraft.core.HolderLookup;
@@ -21,7 +21,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class OverworldOresBlockTagData extends BlockTagsProvider {
     public OverworldOresBlockTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper helper) {
-        super(output, registries, Aether.MODID, helper);
+        super(output, registries, OverworldOres.MODID, helper);
     }
 
     @Override
@@ -50,7 +50,13 @@ public class OverworldOresBlockTagData extends BlockTagsProvider {
                 OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(),
                 OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(),
                 OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_TIN_ORE.get()
+                OverworldOresBlocks.HOLYSTONE_TIN_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_LEAD_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_SILVER_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_NICKEL_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_ZINC_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_URANIUM_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_SULFUR_ORE.get()
         );
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
                 OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get(),
@@ -64,13 +70,16 @@ public class OverworldOresBlockTagData extends BlockTagsProvider {
                 OverworldOresBlocks.HOLYSTONE_COAL_ORE.get(),
                 OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(),
                 OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_TIN_ORE.get()
+                OverworldOresBlocks.HOLYSTONE_TIN_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_LEAD_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_URANIUM_ORE.get()
         );
 
         this.tag(Tags.Blocks.ORE_RATES_DENSE).add(
                 OverworldOresBlocks.HOLYSTONE_COPPER_ORE.get(),
                 OverworldOresBlocks.HOLYSTONE_LAPIS_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_REDSTONE_ORE.get()
+                OverworldOresBlocks.HOLYSTONE_REDSTONE_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_SULFUR_ORE.get()
         );
         this.tag(Tags.Blocks.ORE_RATES_SINGULAR).add(
                 OverworldOresBlocks.HOLYSTONE_COAL_ORE.get(),
@@ -78,7 +87,12 @@ public class OverworldOresBlockTagData extends BlockTagsProvider {
                 OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get(),
                 OverworldOresBlocks.HOLYSTONE_GOLD_ORE.get(),
                 OverworldOresBlocks.HOLYSTONE_IRON_ORE.get(),
-                OverworldOresBlocks.HOLYSTONE_TIN_ORE.get()
+                OverworldOresBlocks.HOLYSTONE_TIN_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_LEAD_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_SILVER_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_NICKEL_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_ZINC_ORE.get(),
+                OverworldOresBlocks.HOLYSTONE_URANIUM_ORE.get()
         );
     }
 }

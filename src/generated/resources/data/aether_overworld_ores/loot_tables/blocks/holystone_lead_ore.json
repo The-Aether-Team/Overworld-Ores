@@ -50,7 +50,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "immersiveengineering:raw_lead"
+                  "name": "mekanism:raw_lead"
                 },
                 {
                   "type": "minecraft:item",
@@ -73,7 +73,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "railcraft:lead_raw"
+                  "name": "immersiveengineering:raw_lead"
                 },
                 {
                   "type": "minecraft:item",
@@ -142,7 +142,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "mekanism:raw_lead"
+                  "name": "railcraft:lead_raw"
                 }
               ]
             }

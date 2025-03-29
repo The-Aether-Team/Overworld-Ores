@@ -50,29 +50,6 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "thermal:raw_silver"
-                },
-                {
-                  "type": "minecraft:item",
-                  "functions": [
-                    {
-                      "function": "minecraft:explosion_decay"
-                    },
-                    {
-                      "add": false,
-                      "count": {
-                        "type": "minecraft:uniform",
-                        "max": 1.0,
-                        "min": 1.0
-                      },
-                      "function": "minecraft:set_count"
-                    },
-                    {
-                      "enchantment": "minecraft:fortune",
-                      "formula": "minecraft:ore_drops",
-                      "function": "minecraft:apply_bonus"
-                    }
-                  ],
                   "name": "embers:raw_silver"
                 },
                 {
@@ -97,6 +74,29 @@
                     }
                   ],
                   "name": "immersiveengineering:raw_silver"
+                },
+                {
+                  "type": "minecraft:item",
+                  "functions": [
+                    {
+                      "function": "minecraft:explosion_decay"
+                    },
+                    {
+                      "add": false,
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "max": 1.0,
+                        "min": 1.0
+                      },
+                      "function": "minecraft:set_count"
+                    },
+                    {
+                      "enchantment": "minecraft:fortune",
+                      "formula": "minecraft:ore_drops",
+                      "function": "minecraft:apply_bonus"
+                    }
+                  ],
+                  "name": "thermal:raw_silver"
                 },
                 {
                   "type": "minecraft:item",
