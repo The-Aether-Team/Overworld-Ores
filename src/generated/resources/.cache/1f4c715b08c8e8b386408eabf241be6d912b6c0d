@@ -1,11 +1,11 @@
-// 1.20.1	2025-03-28T17:56:55.6543935	Tags for minecraft:item mod id aether_overworld_ores
-930c239da0ced8589d7431432fb4169f9380750e data/forge/tags/items/ores.json
-b95407e2d1b2d90293df4459c2dd4f03e052880b data/forge/tags/items/ores/lead.json
-442418619b6f9396571803fbd3a6a9c91dd077fb data/forge/tags/items/ores/nickel.json
-dd2e7486f73f9248f8aeb2cf4961a25cbd28e6be data/forge/tags/items/ores/silver.json
-552ce36c6af1db4b4192c9d9f820ef1cfdf192d2 data/forge/tags/items/ores/sulfur.json
-bd437368df09f38985d8d6ed584a9af7900166b9 data/forge/tags/items/ores/tin.json
-78017a342c24397271c4e11bcc836fb10e43094e data/forge/tags/items/ores/uranium.json
-d04b0f77b99546f1e5df28e64ed512e0d61d3144 data/forge/tags/items/ores/zinc.json
+// 1.20.1	2025-04-01T12:30:23.6227374	Tags for minecraft:item mod id aether_overworld_ores
+b5966971b2f1bd08b5135c5cdadcdb28a41a2cb7 data/forge/tags/items/ores.json
+f015b65594de56d9f06a985aedde43c284fdef5f data/forge/tags/items/ores/lead.json
+b6e1f114ad282cd01d5b58df225153809485c60b data/forge/tags/items/ores/nickel.json
+386693c0b168c49b2a1a74fa9c6d8ebc5308bb34 data/forge/tags/items/ores/silver.json
+e3ea082aaf42fe97634107a11990b7d1d912c58d data/forge/tags/items/ores/sulfur.json
+27901adfbc1b571c59fab541ad3d560d0ec4c420 data/forge/tags/items/ores/tin.json
+014badf742c4b277e1bc694181eb6a6ed7c77218 data/forge/tags/items/ores/uranium.json
+7aa533df9aef4ff227994e97ea9f91a7db91c5d8 data/forge/tags/items/ores/zinc.json
 dcfb0aa19becfd5c2b81927e4376930e28375881 data/forge/tags/items/ore_rates/dense.json
 5412a779b7ea0cfcfe15a65b77436b10830cdf47 data/forge/tags/items/ore_rates/singular.json

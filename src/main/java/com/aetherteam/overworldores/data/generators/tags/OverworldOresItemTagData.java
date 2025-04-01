@@ -24,9 +24,9 @@ public class OverworldOresItemTagData extends ItemTagsProvider {
 
     @Override
     public void addTags(HolderLookup.Provider provider) {
-        for (Map.Entry<ModdedOres.OreKey, ModdedOres.OreEntry> ore : ModdedOres.ORE_MOD_MAP.entries()) {
-            this.tag(Tags.Items.ORES).add(ore.getKey().holystoneOreBlock().get().asItem());
-            this.tag(TagKey.create(Registries.ITEM, new ResourceLocation("forge", "ores/" + ore.getKey().name()))).add(ore.getKey().holystoneOreBlock().get().asItem());
+        for (ModdedOres.OreKey ore : ModdedOres.ORE_MOD_MAP.keySet()) {
+            this.tag(Tags.Items.ORES).add(ore.holystoneOreBlock().get().asItem());
+            this.tag(TagKey.create(Registries.ITEM, new ResourceLocation("forge", "ores/" + ore.name()))).add(ore.holystoneOreBlock().get().asItem());
         }
 
         this.tag(Tags.Items.ORE_RATES_DENSE).add(

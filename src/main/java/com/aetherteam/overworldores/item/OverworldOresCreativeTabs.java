@@ -18,10 +18,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Predicate;
 
 @Mod.EventBusSubscriber(modid = OverworldOres.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -40,7 +37,7 @@ public class OverworldOresCreativeTabs {
                 Pair.of(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE, (v) -> true),
                 Pair.of(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE, (v) -> true)
         ));
-        for (Map.Entry<ModdedOres.OreKey, Collection<ModdedOres.OreEntry>> entry : Lists.reverse(ModdedOres.ORE_MOD_MAP.asMap().entrySet().stream().toList())) {
+        for (Map.Entry<ModdedOres.OreKey, List<ModdedOres.OreEntry>> entry : Lists.reverse(ModdedOres.ORE_MOD_MAP.entrySet().stream().toList())) {
             Predicate<Void> predicate = null;
             for (ModdedOres.OreEntry value : entry.getValue()) {
                 String modId = value.modId();
@@ -50,7 +47,7 @@ public class OverworldOresCreativeTabs {
                     predicate = predicate.or((v) -> ModList.get().isLoaded(modId));
                 }
             }
-            ORDER.add(Pair.of(entry.getKey().holystoneOreBlock(), predicate));
+            ORDER.add(Pair.of(entry.getKey().holystoneOreBlock(), Objects.requireNonNullElse(predicate, (v) -> false)));
         }
     }
 

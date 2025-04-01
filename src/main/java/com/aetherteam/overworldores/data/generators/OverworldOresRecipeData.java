@@ -63,21 +63,23 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
             this.crushingOreRecipe(entry.block(), entry.raw(), entry.crushingAmount(), entry.crushingDuration()).build(consumer);
         }
 
-        for (var entry : ModdedOres.ORE_MOD_MAP.entries()) {
-            if (entry.getValue().ingot().get() != Items.AIR) {
-                String modId = entry.getValue().modId();
-                ItemLike itemlike = entry.getKey().holystoneOreBlock().get();
-                ItemLike result = entry.getValue().ingot().get();
-                float experience = entry.getValue().xp();
-                String group = entry.getValue().ingot().get().asItem().builtInRegistryHolder().key().location().getPath();
-                ConditionalRecipe.builder()
-                        .addCondition(new ModLoadedCondition(modId))
-                        .addRecipe(SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 200, RecipeSerializer.SMELTING_RECIPE).group(group).unlockedBy(getHasName(itemlike), has(itemlike))::save)
-                        .build(consumer, this.name(getItemName(result) + "_from_smelting" + "_" + getItemName(itemlike) + "_" + modId));
-                ConditionalRecipe.builder()
-                        .addCondition(new ModLoadedCondition(modId))
-                        .addRecipe(SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 100, RecipeSerializer.BLASTING_RECIPE).group(group).unlockedBy(getHasName(itemlike), has(itemlike))::save)
-                        .build(consumer, this.name(getItemName(result) + "_from_blasting" + "_" + getItemName(itemlike) + "_" + modId));
+        for (var entry : ModdedOres.ORE_MOD_MAP.entrySet()) {
+            for (var value : entry.getValue()) {
+                if (value.ingot().get() != Items.AIR) {
+                    String modId = value.modId();
+                    ItemLike itemlike = entry.getKey().holystoneOreBlock().get();
+                    ItemLike result = value.ingot().get();
+                    float experience = value.xp();
+                    String group = value.ingot().get().asItem().builtInRegistryHolder().key().location().getPath();
+                    ConditionalRecipe.builder()
+                            .addCondition(new ModLoadedCondition(modId))
+                            .addRecipe(SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 200, RecipeSerializer.SMELTING_RECIPE).group(group).unlockedBy(getHasName(itemlike), has(itemlike))::save)
+                            .build(consumer, this.name(getItemName(result) + "_from_smelting" + "_" + getItemName(itemlike) + "_" + modId));
+                    ConditionalRecipe.builder()
+                            .addCondition(new ModLoadedCondition(modId))
+                            .addRecipe(SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 100, RecipeSerializer.BLASTING_RECIPE).group(group).unlockedBy(getHasName(itemlike), has(itemlike))::save)
+                            .build(consumer, this.name(getItemName(result) + "_from_blasting" + "_" + getItemName(itemlike) + "_" + modId));
+                }
             }
         }
     }
