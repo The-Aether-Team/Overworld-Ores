@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#aether_overworld_ores:has_holystone_sulfur_ore",
-  "features": "aether_overworld_ores:holystone_ore_sulfur",
-  "step": "underground_ores"
-}

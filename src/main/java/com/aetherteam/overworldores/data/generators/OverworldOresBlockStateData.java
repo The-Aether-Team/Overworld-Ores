@@ -5,8 +5,8 @@ import com.aetherteam.overworldores.OverworldOres;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 public class OverworldOresBlockStateData extends NitrogenBlockStateProvider {
     public OverworldOresBlockStateData(PackOutput output, ExistingFileHelper helper) {
@@ -15,7 +15,7 @@ public class OverworldOresBlockStateData extends NitrogenBlockStateProvider {
 
     @Override
     public void registerStatesAndModels() {
-        for (RegistryObject<? extends Block> ore : OverworldOresBlocks.ORE_BLOCKS) {
+        for (DeferredBlock<? extends Block> ore : OverworldOresBlocks.ORE_BLOCKS) {
             this.block(ore.get(), "natural/");
         }
     }

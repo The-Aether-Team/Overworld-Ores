@@ -9,9 +9,11 @@ import com.google.common.collect.ImmutableList;
 import com.simibubi.create.AllRecipeTypes;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -19,15 +21,14 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.common.crafting.ConditionalRecipe;
-import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class OverworldOresRecipeData extends NitrogenRecipeProvider {
-    public OverworldOresRecipeData(PackOutput output) {
-        super(output, OverworldOres.MODID);
+    public OverworldOresRecipeData(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, lookupProvider, OverworldOres.MODID);
     }
 
     public static final ImmutableList<OreSmelting> SMELTING = ImmutableList.of(
@@ -54,7 +55,7 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
     );
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(RecipeOutput consumer) {
         for (var entry : SMELTING) {
             this.smeltingOreRecipe(entry.processed(), entry.block(), entry.smeltingXp()).group(entry.processed().asItem().builtInRegistryHolder().key().location().getPath()).save(consumer, this.name(getItemName(entry.processed()) + "_from_smelting_" + getItemName(entry.block())));
             this.blastingOreRecipe(entry.processed(), entry.block(), entry.smeltingXp()).group(entry.processed().asItem().builtInRegistryHolder().key().location().getPath()).save(consumer, this.name(getItemName(entry.processed()) + "_from_blasting_" + getItemName(entry.block())));
@@ -63,21 +64,19 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
             this.crushingOreRecipe(entry.block(), entry.raw(), entry.crushingAmount(), entry.crushingDuration()).build(consumer);
         }
 
-        for (var entry : ModdedOres.ORE_MOD_MAP.entries()) {
-            if (entry.getValue().ingot().get() != Items.AIR) {
-                String modId = entry.getValue().modId();
-                ItemLike itemlike = entry.getKey().holystoneOreBlock().get();
-                ItemLike result = entry.getValue().ingot().get();
-                float experience = entry.getValue().xp();
-                String group = entry.getValue().ingot().get().asItem().builtInRegistryHolder().key().location().getPath();
-                ConditionalRecipe.builder()
-                        .addCondition(new ModLoadedCondition(modId))
-                        .addRecipe(SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 200, RecipeSerializer.SMELTING_RECIPE).group(group).unlockedBy(getHasName(itemlike), has(itemlike))::save)
-                        .build(consumer, this.name(getItemName(result) + "_from_smelting" + "_" + getItemName(itemlike) + "_" + modId));
-                ConditionalRecipe.builder()
-                        .addCondition(new ModLoadedCondition(modId))
-                        .addRecipe(SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 100, RecipeSerializer.BLASTING_RECIPE).group(group).unlockedBy(getHasName(itemlike), has(itemlike))::save)
-                        .build(consumer, this.name(getItemName(result) + "_from_blasting" + "_" + getItemName(itemlike) + "_" + modId));
+        for (var entry : ModdedOres.ORE_MOD_MAP.entrySet()) {
+            for (var value : entry.getValue()) {
+                if (value.ingot().get() != Items.AIR) {
+                    String modId = value.modId();
+                    ItemLike itemlike = entry.getKey().holystoneOreBlock().get();
+                    ItemLike result = value.ingot().get();
+                    float experience = value.xp();
+                    String group = value.ingot().get().asItem().builtInRegistryHolder().key().location().getPath();
+                    SimpleCookingRecipeBuilder.smelting(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 200).group(group).unlockedBy(getHasName(itemlike), has(itemlike))
+                            .save(consumer.withConditions(new ModLoadedCondition(modId)), this.name(getItemName(result) + "_from_smelting" + "_" + getItemName(itemlike) + "_" + modId));
+                    SimpleCookingRecipeBuilder.blasting(Ingredient.of(itemlike), RecipeCategory.MISC, result, experience, 100).group(group).unlockedBy(getHasName(itemlike), has(itemlike))
+                            .save(consumer.withConditions(new ModLoadedCondition(modId)), this.name(getItemName(result) + "_from_blasting" + "_" + getItemName(itemlike) + "_" + modId));
+                }
             }
         }
     }
@@ -91,7 +90,7 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
         if (extra > 0.0F) {
             builder.output(extra, raw, 1);
         }
-        builder.output(0.75F, ForgeRegistries.ITEMS.getValue(new ResourceLocation("create", "experience_nugget")), 1);
+        builder.output(0.75F, BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("create", "experience_nugget")), 1);
         builder.output(0.12F, AetherBlocks.HOLYSTONE.get());
         return builder;
     }

@@ -25,7 +25,7 @@ public class OverworldOresTags {
         public static final TagKey<Biome> HAS_HOLYSTONE_SULFUR_ORE = tag("has_holystone_sulfur_ore");
 
         private static TagKey<Biome> tag(String name) {
-            return TagKey.create(Registries.BIOME, new ResourceLocation(OverworldOres.MODID, name));
+            return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(OverworldOres.MODID, name));
         }
     }
 }

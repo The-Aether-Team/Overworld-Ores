@@ -1,17 +1,18 @@
 package com.aetherteam.overworldores.world.placementmodifiers;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementFilter;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.fml.ModList;
 
 import java.util.List;
 
 public class ModFilter extends PlacementFilter {
-    public static final Codec<ModFilter> CODEC = Codec.STRING.listOf().fieldOf("mods").xmap(ModFilter::new, (filter) -> filter.mods).codec();
+    public static final MapCodec<ModFilter> CODEC = Codec.STRING.listOf().fieldOf("mods").xmap(ModFilter::new, (filter) -> filter.mods);
     private final List<String> mods;
 
     private ModFilter(List<String> mods) {
@@ -34,6 +35,6 @@ public class ModFilter extends PlacementFilter {
 
     @Override
     public PlacementModifierType<?> type() {
-        return OverworldOresPlacementModifiers.MOD_FILTER;
+        return OverworldOresPlacementModifiers.MOD_FILTER.get();
     }
 }

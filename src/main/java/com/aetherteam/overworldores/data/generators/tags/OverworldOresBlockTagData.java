@@ -11,10 +11,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.BlockTagsProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -29,7 +29,7 @@ public class OverworldOresBlockTagData extends BlockTagsProvider {
         IntrinsicTagAppender<Block> aetherBlock = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
         IntrinsicTagAppender<Block> pickaxe = this.tag(BlockTags.MINEABLE_WITH_PICKAXE);
 
-        for (RegistryObject<? extends Block> ore : OverworldOresBlocks.ORE_BLOCKS) {
+        for (DeferredBlock<? extends Block> ore : OverworldOresBlocks.ORE_BLOCKS) {
             pickaxe.add(ore.get());
             aetherBlock.add(ore.get());
         }
@@ -43,7 +43,7 @@ public class OverworldOresBlockTagData extends BlockTagsProvider {
         this.tag(BlockTags.EMERALD_ORES).add(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get());
         this.tag(BlockTags.DIAMOND_ORES).add(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get());
         for (ModdedOres.OreKey ore : ModdedOres.ORE_MOD_MAP.keySet()) {
-            this.tag(TagKey.create(Registries.BLOCK, new ResourceLocation("forge", "ores/" + ore.name()))).add(ore.holystoneOreBlock().get());
+            this.tag(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "ores/" + ore.name()))).add(ore.holystoneOreBlock().get());
         }
 
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(

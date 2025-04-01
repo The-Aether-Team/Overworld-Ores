@@ -4,6 +4,7 @@ import com.aetherteam.overworldores.data.generators.*;
 import com.aetherteam.overworldores.data.generators.tags.OverworldOresBiomeTagData;
 import com.aetherteam.overworldores.data.generators.tags.OverworldOresBlockTagData;
 import com.aetherteam.overworldores.data.generators.tags.OverworldOresItemTagData;
+import net.minecraft.DetectedVersion;
 import net.minecraft.SharedConstants;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -12,10 +13,12 @@ import net.minecraft.data.metadata.PackMetadataGenerator;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraft.util.InclusiveRange;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 public class OverworldOresData {
@@ -31,8 +34,8 @@ public class OverworldOresData {
         generator.addProvider(event.includeClient(), new OverworldOresLanguageData(packOutput));
 
         // Server Data
-        generator.addProvider(event.includeServer(), new OverworldOresRecipeData(packOutput));
-        generator.addProvider(event.includeServer(), OverworldOresLootTableData.create(packOutput));
+        generator.addProvider(event.includeServer(), new OverworldOresRecipeData(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), OverworldOresLootTableData.create(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new OverworldOresRegistrySets(packOutput, lookupProvider));
         // Tags
         OverworldOresBlockTagData blockTags = new OverworldOresBlockTagData(packOutput, lookupProvider, fileHelper);
@@ -41,9 +44,9 @@ public class OverworldOresData {
         generator.addProvider(event.includeServer(), new OverworldOresBiomeTagData(packOutput, lookupProvider, fileHelper));
 
         // pack.mcmeta
-        PackMetadataGenerator packMeta = new PackMetadataGenerator(packOutput);
-        Map<PackType, Integer> packTypes = Map.of(PackType.SERVER_DATA, SharedConstants.getCurrentVersion().getPackVersion(PackType.SERVER_DATA));
-        packMeta.add(PackMetadataSection.TYPE, new PackMetadataSection(Component.translatable("pack.aether_overworld_ores.mod.description"), SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES), packTypes));
-        generator.addProvider(true, packMeta);
+        generator.addProvider(true, new PackMetadataGenerator(packOutput).add(PackMetadataSection.TYPE, new PackMetadataSection(
+                Component.translatable("pack.aether_overworld_ores.mod.description"),
+                DetectedVersion.BUILT_IN.getPackVersion(PackType.SERVER_DATA),
+                Optional.of(new InclusiveRange<>(0, Integer.MAX_VALUE)))));
     }
 }

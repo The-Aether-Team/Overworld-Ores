@@ -12,21 +12,21 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Predicate;
 
-@Mod.EventBusSubscriber(modid = OverworldOres.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = OverworldOres.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class OverworldOresCreativeTabs {
-    public static List<Pair<RegistryObject<Block>, Predicate<Void>>> ORDER = new ArrayList<>();
+    public static List<Pair<DeferredBlock<Block>, Predicate<Void>>> ORDER = new ArrayList<>();
 
     static {
         ORDER.addAll(List.of(
@@ -40,7 +40,7 @@ public class OverworldOresCreativeTabs {
                 Pair.of(OverworldOresBlocks.HOLYSTONE_LAPIS_ORE, (v) -> true),
                 Pair.of(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE, (v) -> true)
         ));
-        for (Map.Entry<ModdedOres.OreKey, Collection<ModdedOres.OreEntry>> entry : Lists.reverse(ModdedOres.ORE_MOD_MAP.asMap().entrySet().stream().toList())) {
+        for (Map.Entry<ModdedOres.OreKey, List<ModdedOres.OreEntry>> entry : Lists.reverse(ModdedOres.ORE_MOD_MAP.entrySet().stream().toList())) {
             Predicate<Void> predicate = null;
             for (ModdedOres.OreEntry value : entry.getValue()) {
                 String modId = value.modId();
@@ -50,14 +50,13 @@ public class OverworldOresCreativeTabs {
                     predicate = predicate.or((v) -> ModList.get().isLoaded(modId));
                 }
             }
-            ORDER.add(Pair.of(entry.getKey().holystoneOreBlock(), predicate));
+            ORDER.add(Pair.of(entry.getKey().holystoneOreBlock(), Objects.requireNonNullElse(predicate, (v) -> false)));
         }
     }
 
     @SubscribeEvent
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
         ResourceKey<CreativeModeTab> tab = event.getTabKey();
-        Aether.LOGGER.info(ORDER.stream().map((a) -> a.getFirst().get()).toList().toString());
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey()) {
             Block after = null;
             for (int i = 1; i < ORDER.size(); i++) {
@@ -67,7 +66,7 @@ public class OverworldOresCreativeTabs {
                     }
                     if (after != null) {
                         Block key = ORDER.get(i).getFirst().get();
-                        event.getEntries().putAfter(new ItemStack(after), new ItemStack(key), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                        event.insertAfter(new ItemStack(after), new ItemStack(key), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                     }
                 }
             }

@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#aether_overworld_ores:has_holystone_lead_ore",
-  "features": "aether_overworld_ores:holystone_ore_lead",
-  "step": "underground_ores"
-}

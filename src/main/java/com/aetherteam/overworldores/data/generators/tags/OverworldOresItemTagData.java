@@ -10,8 +10,8 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
 import java.util.Map;
@@ -24,9 +24,9 @@ public class OverworldOresItemTagData extends ItemTagsProvider {
 
     @Override
     public void addTags(HolderLookup.Provider provider) {
-        for (Map.Entry<ModdedOres.OreKey, ModdedOres.OreEntry> ore : ModdedOres.ORE_MOD_MAP.entries()) {
-            this.tag(Tags.Items.ORES).add(ore.getKey().holystoneOreBlock().get().asItem());
-            this.tag(TagKey.create(Registries.ITEM, new ResourceLocation("forge", "ores/" + ore.getKey().name()))).add(ore.getKey().holystoneOreBlock().get().asItem());
+        for (ModdedOres.OreKey ore : ModdedOres.ORE_MOD_MAP.keySet()) {
+            this.tag(Tags.Items.ORES).add(ore.holystoneOreBlock().get().asItem());
+            this.tag(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "ores/" + ore.name()))).add(ore.holystoneOreBlock().get().asItem());
         }
 
         this.tag(Tags.Items.ORE_RATES_DENSE).add(

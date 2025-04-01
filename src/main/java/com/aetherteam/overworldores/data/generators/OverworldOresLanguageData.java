@@ -5,7 +5,7 @@ import com.aetherteam.overworldores.OverworldOres;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -17,7 +17,7 @@ public class OverworldOresLanguageData extends NitrogenLanguageProvider {
 
     @Override
     protected void addTranslations() {
-        for (RegistryObject<? extends Block> ore : OverworldOresBlocks.ORE_BLOCKS) {
+        for (DeferredBlock<? extends Block> ore : OverworldOresBlocks.ORE_BLOCKS) {
             String id = ore.getId().getPath();
             String name = Stream.of(id.replace('_', ' ').split(" "))
                     .map((str) -> str.substring(0,1).toUpperCase() + str.substring(1).toLowerCase())

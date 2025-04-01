@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#aether_overworld_ores:has_holystone_copper_ore",
-  "features": "aether_overworld_ores:holystone_ore_copper",
-  "step": "underground_ores"
-}

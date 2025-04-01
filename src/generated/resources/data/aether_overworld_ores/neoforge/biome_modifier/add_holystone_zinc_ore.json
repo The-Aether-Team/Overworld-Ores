@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#aether_overworld_ores:has_holystone_zinc_ore",
+  "features": "aether_overworld_ores:holystone_ore_zinc",
+  "step": "underground_ores"
+}

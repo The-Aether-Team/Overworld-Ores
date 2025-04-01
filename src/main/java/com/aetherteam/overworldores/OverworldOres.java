@@ -7,11 +7,11 @@ import com.aetherteam.overworldores.loot.entries.OverworldOresLootPoolEntries;
 import com.aetherteam.overworldores.world.placementmodifiers.OverworldOresPlacementModifiers;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
 @Mod(OverworldOres.MODID)
@@ -19,19 +19,19 @@ public class OverworldOres {
     public static final String MODID = "aether_overworld_ores";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public OverworldOres() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        modEventBus.addListener(OverworldOresData::dataSetup);
-        modEventBus.addListener(this::commonSetup);
+    public OverworldOres(ModContainer mod, IEventBus bus) {
+        bus.addListener(OverworldOresData::dataSetup);
+        bus.addListener(this::commonSetup);
 
         DeferredRegister<?>[] registers = {
                 OverworldOresBlocks.BLOCKS,
                 OverworldOresItems.ITEMS,
+                OverworldOresPlacementModifiers.PLACEMENT_MODIFIERS,
                 OverworldOresLootPoolEntries.LOOT_POOL_ENTRY_TYPES,
         };
 
         for (DeferredRegister<?> register : registers) {
-            register.register(modEventBus);
+            register.register(bus);
         }
     }
 

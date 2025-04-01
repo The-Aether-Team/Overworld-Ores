@@ -4,7 +4,7 @@ import com.aetherteam.aether.data.resources.AetherFeatureRules;
 import com.aetherteam.overworldores.OverworldOres;
 import com.aetherteam.overworldores.data.resources.OverworldOresFeatureStates;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -31,10 +31,10 @@ public class OverworldOresConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSTONE_ORE_SULFUR_CONFIGURATION = createKey("holystone_ore_sulfur");
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(OverworldOres.MODID, name));
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(OverworldOres.MODID, name));
     }
 
-    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         register(context, HOLYSTONE_ORE_COAL_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, OverworldOresFeatureStates.HOLYSTONE_COAL_ORE, 17));
         register(context, HOLYSTONE_ORE_IRON_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, OverworldOresFeatureStates.HOLYSTONE_IRON_ORE, 7));
         register(context, HOLYSTONE_ORE_COPPER_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, OverworldOresFeatureStates.HOLYSTONE_COPPER_ORE, 15));
@@ -53,7 +53,7 @@ public class OverworldOresConfiguredFeatures {
         register(context, HOLYSTONE_ORE_SULFUR_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, OverworldOresFeatureStates.HOLYSTONE_SULFUR_ORE, 5));
     }
 
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));
     }
 }

@@ -1,10 +1,8 @@
 package com.aetherteam.overworldores.block;
 
 import com.aetherteam.overworldores.OverworldOres;
-import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class OverworldOresItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, OverworldOres.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(OverworldOres.MODID);
 }

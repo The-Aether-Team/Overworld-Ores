@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#aether_overworld_ores:has_holystone_uranium_ore",
-  "features": "aether_overworld_ores:holystone_ore_uranium",
-  "step": "underground_ores"
-}

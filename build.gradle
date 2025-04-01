@@ -1,65 +1,62 @@
 plugins {
+    id 'java-library'
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle' version '[6.0.13, 6.2)'
-    id 'org.parchmentmc.librarian.forgegradle' version '[1,2)'
-    id 'org.moddingx.modgradle.mapping' version '[4,5)'
-    id 'org.moddingx.modgradle.sourcejar' version '[4,5)' apply false
+    id 'net.neoforged.moddev' version "${moddevgradle_version}"
     id 'io.github.0ffz.github-packages' version '[1,2)'
     id 'com.matthewprenger.cursegradle' version '[1.4,1.5)'
     id 'com.modrinth.minotaur' version '[2,3)'
 }
 
-version = "${mc_version}-${mod_version}-neoforge"
-group = 'com.aetherteam.aether_overworld_ores' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+tasks.named('wrapper', Wrapper).configure {
+    distributionType = Wrapper.DistributionType.BIN
+}
+
+version = "${minecraft_version}-${mod_version}-neoforge"
+group = mod_group
 
 base {
     archivesName = mod_id
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
-apply plugin: 'org.moddingx.modgradle.sourcejar'
-
-minecraft {
-    mappings channel: 'sugarcane', version: project.mappings
-
-    copyIdeResources = true
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+neoForge {
+    version = project.neo_version
 
     runs {
         configureEach {
-            workingDirectory project.file('run')
-
-            property "${mod_id}.iside", 'true'
-            property 'forge.logging.console.level', 'info' // info is the default for production
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-
-            mods {
-                "${mod_id}" {
-                    source sourceSets.main
-                }
-            }
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            systemProperty 'owo.forceDisableDebug', 'true'
+            logLevel = org.slf4j.event.Level.INFO
         }
 
         client {
-            property 'forge.enabledGameTestNamespaces', mod_id
+            client()
+            systemProperty 'forge.enabledGameTestNamespaces', mod_id
         }
 
         server {
-            property 'forge.enabledGameTestNamespaces', mod_id
-            args '--nogui'
+            server()
+            systemProperty 'forge.enabledGameTestNamespaces', mod_id
+            programArgument '--nogui'
         }
 
         gameTestServer {
-            property 'forge.enabledGameTestNamespaces', mod_id
+            type = "gameTestServer"
+            systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
         }
 
         data {
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), '--existing', file('src/generated/resources/'), '--existing-mod', 'nitrogen_internals',  '--existing-mod', 'aether'
-            environment 'target', 'fmluserdevdata'
+            data()
+            programArguments.addAll '--mod', mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath(), '--existing', file('src/generated/resources/').getAbsolutePath(), '--existing-mod', 'aether', '--existing-mod', 'nitrogen_internals', '--existing-mod', 'cumulus_menus'
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
         }
     }
 }
@@ -68,28 +65,83 @@ sourceSets.main.resources {
     srcDir 'src/generated/resources'
 }
 
+processResources {
+    exclude '.cache/'
+}
+
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+}
+
 dependencies {
-    minecraft "net.neoforged:forge:${project.mc_version}-${project.neoforge_version}"
+    implementation "com.aetherteam.aether:aether:${project.aether_version}"
 
-    implementation fg.deobf("com.aetherteam.aether:aether:${project.aether_version}")
-    implementation fg.deobf("com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}")
-    implementation fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}+${project.mc_version}")
+    implementation "com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}"
+    implementation "io.wispforest:accessories-neoforge:${project.accessories_version}+${project.minecraft_version}"
 
-    implementation fg.deobf("curse.maven:cofh-core-69162:5374122")
-    implementation fg.deobf("curse.maven:thermal-foundation-222880:5443583")
-    implementation fg.deobf("curse.maven:create-328085:6302736")
-    implementation fg.deobf("curse.maven:immersive-engineering-231951:5224387")
-    implementation fg.deobf("curse.maven:railcraft-reborn-901491:6149940")
-    implementation fg.deobf("curse.maven:mekanism-268560:6258796")
-    implementation fg.deobf("curse.maven:embers-300777:6156839")
-    runtimeOnly fg.deobf("curse.maven:jei-238222:6075247")
+//    implementation fg.deobf("curse.maven:cofh-core-69162:5374122") //todo uopdate all these
+//    implementation fg.deobf("curse.maven:thermal-foundation-222880:5443583")
+    implementation "curse.maven:create-328085:6323264"
+    implementation "curse.maven:immersive-engineering-231951:6235316"
+//    implementation fg.deobf("curse.maven:railcraft-reborn-901491:6149940")
+//    implementation fg.deobf("curse.maven:mekanism-268560:6258796")
+//    implementation fg.deobf("curse.maven:embers-300777:6156839")
+    runtimeOnly "curse.maven:jei-238222:5846880"
 }
 
 repositories {
+    maven { url = "https://jitpack.io" }
     maven { url = "https://maven.blamejared.com" }
     maven { url = "https://maven.theillusivec4.top/" }
     maven { url = "https://cursemaven.com" }
+    maven { url = "https://dvs1.progwml6.com/files/maven/" }
+    maven { url = "https://gitlab.com/api/v4/projects/21830712/packages/maven" }
+    maven { url = "https://maven.wispforest.io" }
+    maven { url = "https://maven.wispforest.io/releases" }
+    maven { url = "https://maven.shedaniel.me/" }
+    maven { url = "https://maven.fabricmc.net" }
+    maven { url = "https://maven.su5ed.dev/releases" }
+    maven { url = "https://maven.architectury.dev/" }
     maven githubPackage.invoke("The-Aether-Team/The-Aether")
+}
+
+var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
+    var replaceProperties = [
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_version            : mod_version,
+            mod_license            : mod_license,
+            mod_url                : mod_url,
+            mod_update             : mod_update,
+            mod_tracker            : mod_tracker,
+            mod_credits            : mod_credits,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description,
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
+            loader_version_range   : loader_version_range,
+            aether_version         : aether_version,
+            aether_version_range   : aether_version_range
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from "src/main/templates"
+    into "build/generated/sources/modMetadata"
+}
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    options.compilerArgs << "-Xmaxerrs" << "9000"
+}
+
+tasks.register('sourceJar', Jar) {
+    dependsOn 'classes'
+    from sourceSets.main.allSource
+    archiveClassifier = 'sources'
 }
 
 tasks.named('jar', Jar).configure {
@@ -115,14 +167,14 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             artifactId project.archivesBaseName
-            artifact jar
-            artifact sourceJar
+            artifact project.tasks.jar
+            artifact project.sourceJar
         }
     }
     repositories {
         maven {
             name = "GitHubPackages"
-            url = "https://maven.pkg.github.com/The-Aether-Team/Treasure-Reforging"
+            url = "https://maven.pkg.github.com/The-Aether-Team/Overworld-Ores"
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
@@ -138,8 +190,7 @@ curseforge {
         releaseType = "${project.version_type}"
         changelog = file("$rootDir/docs/CHANGELOG.md")
         changelogType = "markdown"
-        addGameVersion("${project.mc_version}")
-        addGameVersion("Forge")
+        addGameVersion("${project.minecraft_version}")
         addGameVersion("NeoForge")
         mainArtifact(tasks.jar) {
             displayName = "${project.mod_name} - ${version}"
@@ -158,8 +209,8 @@ modrinth {
     versionName = "${project.mod_name} - ${version}"
     changelog = new File("$rootDir/docs/CHANGELOG.md").text
     uploadFile = tasks.jar
-    gameVersions = ["${project.mc_version}"]
-    loaders = ["forge", "neoforge"]
+    gameVersions = ["${project.minecraft_version}"]
+    loaders = ["neoforge"]
     dependencies {
         required.version "aether", "${project.aether_version}"
     }
