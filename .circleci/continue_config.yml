@@ -6,12 +6,12 @@ orbs:
 parameters:
   artifact-name:
     type: string
-    default: aether_overworld_ores-1.20.1-1.0.0-forge.jar
+    default: aether_overworld_ores-1.21.1-1.0.0-forge.jar
 
 jobs:
   build:
     machine:
-      image: ubuntu-2204:2023.02.1
+      image: ubuntu-2404:2024.08.1
     resource_class: medium
     environment:
       _JAVA_OPTIONS: -Xmx3200m
