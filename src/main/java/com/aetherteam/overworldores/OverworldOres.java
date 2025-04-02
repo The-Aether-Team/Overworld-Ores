@@ -3,7 +3,6 @@ package com.aetherteam.overworldores;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import com.aetherteam.overworldores.block.OverworldOresItems;
 import com.aetherteam.overworldores.data.OverworldOresData;
-import com.aetherteam.overworldores.loot.entries.OverworldOresLootPoolEntries;
 import com.aetherteam.overworldores.world.placementmodifiers.OverworldOresPlacementModifiers;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
@@ -26,8 +25,7 @@ public class OverworldOres {
         DeferredRegister<?>[] registers = {
                 OverworldOresBlocks.BLOCKS,
                 OverworldOresItems.ITEMS,
-                OverworldOresPlacementModifiers.PLACEMENT_MODIFIERS,
-                OverworldOresLootPoolEntries.LOOT_POOL_ENTRY_TYPES,
+                OverworldOresPlacementModifiers.PLACEMENT_MODIFIERS
         };
 
         for (DeferredRegister<?> register : registers) {

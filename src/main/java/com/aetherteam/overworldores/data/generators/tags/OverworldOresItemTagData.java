@@ -14,7 +14,6 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class OverworldOresItemTagData extends ItemTagsProvider {

@@ -29,7 +29,7 @@
               "name": "aether_overworld_ores:holystone_uranium_ore"
             },
             {
-              "type": "aether_overworld_ores:random",
+              "type": "nitrogen_internals:random",
               "children": [
                 {
                   "type": "minecraft:item",

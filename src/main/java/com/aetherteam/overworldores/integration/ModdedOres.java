@@ -1,9 +1,7 @@
 package com.aetherteam.overworldores.integration;
 
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
-import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Multimaps;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.ConstantInt;
@@ -12,13 +10,13 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredBlock;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
 public class ModdedOres {
-    public static Map<OreKey, List<OreEntry>> ORE_MOD_MAP = new HashMap<>();
+    public static Map<OreKey, List<OreEntry>> ORE_MOD_MAP = new LinkedHashMap<>();
 
     static {
         ORE_MOD_MAP.put(new OreKey("tin", OverworldOresBlocks.HOLYSTONE_TIN_ORE), Lists.newArrayList(
