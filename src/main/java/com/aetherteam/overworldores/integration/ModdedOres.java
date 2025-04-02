@@ -12,13 +12,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
 public class ModdedOres {
-    public static Map<OreKey, List<OreEntry>> ORE_MOD_MAP = new HashMap<>();
+    public static Map<OreKey, List<OreEntry>> ORE_MOD_MAP = new LinkedHashMap<>();
 
     static {
         ORE_MOD_MAP.put(new OreKey("tin", OverworldOresBlocks.HOLYSTONE_TIN_ORE), Lists.newArrayList(

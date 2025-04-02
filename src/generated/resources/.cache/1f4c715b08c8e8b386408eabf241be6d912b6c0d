@@ -1,5 +1,5 @@
-// 1.20.1	2025-04-01T12:30:23.6227374	Tags for minecraft:item mod id aether_overworld_ores
-b5966971b2f1bd08b5135c5cdadcdb28a41a2cb7 data/forge/tags/items/ores.json
+// 1.20.1	2025-04-02T12:02:20.3604466	Tags for minecraft:item mod id aether_overworld_ores
+c8a1e1b7073c414e42774b260d9d03b6bff1c165 data/forge/tags/items/ores.json
 f015b65594de56d9f06a985aedde43c284fdef5f data/forge/tags/items/ores/lead.json
 b6e1f114ad282cd01d5b58df225153809485c60b data/forge/tags/items/ores/nickel.json
 386693c0b168c49b2a1a74fa9c6d8ebc5308bb34 data/forge/tags/items/ores/silver.json
