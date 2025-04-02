@@ -19,12 +19,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Consumer;
 
 public class OverworldOresRecipeData extends NitrogenRecipeProvider {
     public OverworldOresRecipeData(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {

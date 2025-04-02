@@ -1,7 +1,6 @@
 package com.aetherteam.overworldores.loot;
 
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.Collections;

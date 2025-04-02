@@ -1,6 +1,5 @@
 package com.aetherteam.overworldores.data.generators.loot;
 
-import com.aetherteam.aether.Aether;
 import com.aetherteam.nitrogen.data.providers.NitrogenBlockLootSubProvider;
 import com.aetherteam.nitrogen.loot.entries.RandomEntry;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;

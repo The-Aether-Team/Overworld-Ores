@@ -1,6 +1,5 @@
 package com.aetherteam.overworldores.item;
 
-import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.overworldores.OverworldOres;

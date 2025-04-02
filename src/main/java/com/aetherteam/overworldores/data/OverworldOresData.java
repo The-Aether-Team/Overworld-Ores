@@ -5,7 +5,6 @@ import com.aetherteam.overworldores.data.generators.tags.OverworldOresBiomeTagDa
 import com.aetherteam.overworldores.data.generators.tags.OverworldOresBlockTagData;
 import com.aetherteam.overworldores.data.generators.tags.OverworldOresItemTagData;
 import net.minecraft.DetectedVersion;
-import net.minecraft.SharedConstants;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -17,7 +16,6 @@ import net.minecraft.util.InclusiveRange;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
-import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
