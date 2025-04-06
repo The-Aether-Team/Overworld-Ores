@@ -9,12 +9,10 @@ version="${file.jarVersion}"
 displayName="Overworld Ores"
 updateJSONURL="https://github.com/The-Aether-Team/Overworld-Ores/raw/1.20.1-develop/update.json"
 displayURL="https://modrinth.com/mod/overworld-ores"
-logoFile="overworld_ores_icon.png"
+logoFile="aether_overworld_ores.png"
 credits="The Aether Team"
 authors="bconlon, Builderdog, Oz Payn"
-description='''
-TBA...
-'''
+description='''Implements new naturally generating Holystone variants of various vanilla and modded ores.'''
 
 [[dependencies.aether_overworld_ores]]
     modId="forge"
