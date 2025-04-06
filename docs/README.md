@@ -45,7 +45,7 @@ If you're interested in sponsoring Overworld Ores or The Aether Team, please [co
 [![CurseForge Version](http://cf.way2muchnoise.eu/versions/1237218_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/aether-overworld-ores)
 [![CircleCI](https://circleci.com/gh/The-Aether-Team/Overworld-Ores/tree/1.20.1-develop.svg?style=shield)](https://app.circleci.com/pipelines/github/The-Aether-Team/Overworld-Ores?branch=1.20.1-develop)
 ### Release builds
-Overworld Ores has relatively stable beta builds available for release for 1.20.1 on [Modrinth](https://modrinth.com/mod/aether-overworld-ores) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/aether-overworld-ores). A full 1.0.0 release will be coming soon.
+Overworld Ores has stable release builds available on [Modrinth](https://modrinth.com/mod/aether-overworld-ores) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/aether-overworld-ores).
 
 ### Bleeding edge builds
 If you’re feeling a bit more adventurous or wish to help test the in-development versions, we provide **bleeding edge builds** which are produced on [CircleCI](https://app.circleci.com/pipelines/github/The-Aether-Team/Overworld-Ores). These builds are created for every new commit and contain the latest available code. We do not recommend users treat these builds as releases, as they are unfinished and may contain serious issues. If you wish to download these builds, check out [this guide](https://github.com/The-Aether-Team/Overworld-Ores/wiki/CircleCI-Guide).
