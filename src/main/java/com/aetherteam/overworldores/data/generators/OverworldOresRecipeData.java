@@ -60,13 +60,10 @@ public class OverworldOresRecipeData extends NitrogenRecipeProvider {
             this.blastingOreRecipe(entry.processed(), entry.block(), entry.smeltingXp()).group(entry.processed().asItem().builtInRegistryHolder().key().location().getPath()).save(consumer, this.name(getItemName(entry.processed()) + "_from_blasting_" + getItemName(entry.block())));
         }
         for (var entry : CRUSHING) {
-
             ConditionalRecipe.builder()
                     .addCondition(new ModLoadedCondition("create"))
                     .addRecipe(this.crushingOreRecipe(entry.block(), entry.raw(), entry.crushingAmount(), entry.crushingDuration())::build)
                     .build(consumer, this.name("crushing/" + getItemName(entry.block()) + "_crushing"));
-
-//            this.crushingOreRecipe(entry.block(), entry.raw(), entry.crushingAmount(), entry.crushingDuration()).build(consumer);
         }
 
         for (var entry : ModdedOres.ORE_MOD_MAP.entrySet()) {
