@@ -1,5 +1,6 @@
 package com.aetherteam.overworldores.integration;
 
+import com.aetherteam.aetherfabric.registries.DeferredBlock;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import com.google.common.collect.Lists;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -8,7 +9,6 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.LinkedHashMap;
 import java.util.List;

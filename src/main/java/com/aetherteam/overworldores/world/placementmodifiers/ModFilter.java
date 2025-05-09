@@ -7,7 +7,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementFilter;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
-import net.neoforged.fml.ModList;
+import net.fabricmc.loader.api.FabricLoader;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class ModFilter extends PlacementFilter {
     @Override
     protected boolean shouldPlace(PlacementContext context, RandomSource random, BlockPos pos) {
         for (String mod : this.mods) {
-            if (ModList.get().isLoaded(mod)) {
+            if (FabricLoader.getInstance().isModLoaded(mod)) {
                 return true;
             }
         }

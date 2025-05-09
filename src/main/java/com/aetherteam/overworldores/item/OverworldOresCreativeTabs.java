@@ -2,20 +2,19 @@ package com.aetherteam.overworldores.item;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
+import com.aetherteam.aetherfabric.registries.DeferredBlock;
 import com.aetherteam.overworldores.OverworldOres;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import com.aetherteam.overworldores.integration.ModdedOres;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.resources.ResourceKey;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModList;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-@EventBusSubscriber(modid = OverworldOres.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class OverworldOresCreativeTabs {
     public static List<Pair<DeferredBlock<Block>, Predicate<Void>>> ORDER = new ArrayList<>();
 
@@ -44,19 +42,18 @@ public class OverworldOresCreativeTabs {
             for (ModdedOres.OreEntry value : entry.getValue()) {
                 String modId = value.modId();
                 if (predicate == null) {
-                    predicate = (v) -> ModList.get().isLoaded(modId);
+                    predicate = (v) -> FabricLoader.getInstance().isModLoaded(modId);
                 } else {
-                    predicate = predicate.or((v) -> ModList.get().isLoaded(modId));
+                    predicate = predicate.or((v) -> FabricLoader.getInstance().isModLoaded(modId));
                 }
             }
             ORDER.add(Pair.of(entry.getKey().holystoneOreBlock(), Objects.requireNonNullElse(predicate, (v) -> false)));
         }
     }
 
-    @SubscribeEvent
-    public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
-        ResourceKey<CreativeModeTab> tab = event.getTabKey();
-        if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey()) {
+    public static void buildCreativeModeTabs(CreativeModeTab group, FabricItemGroupEntries entries) {
+        ResourceLocation tab = BuiltInRegistries.CREATIVE_MODE_TAB.getKey(group);
+        if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getId()) {
             Block after = null;
             for (int i = 1; i < ORDER.size(); i++) {
                 if (ORDER.get(i).getSecond().test(null)) {
@@ -65,7 +62,7 @@ public class OverworldOresCreativeTabs {
                     }
                     if (after != null) {
                         Block key = ORDER.get(i).getFirst().get();
-                        event.insertAfter(new ItemStack(after), new ItemStack(key), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                        entries.addAfter(new ItemStack(after), List.of(new ItemStack(key)), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                     }
                 }
             }
