@@ -1,3 +1,7 @@
+# Overworld Ores - NeoForge - 1.20.1-1.0.2
+
+- Fix log spam.
+
 # Overworld Ores - NeoForge - 1.20.1-1.0.1
 
 - Add lore entries for blocks.
