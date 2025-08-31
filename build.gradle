@@ -123,7 +123,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = "https://maven.pkg.github.com/The-Aether-Team/Treasure-Reforging"
+            url = "https://maven.pkg.github.com/The-Aether-Team/Overworld-Ores"
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
