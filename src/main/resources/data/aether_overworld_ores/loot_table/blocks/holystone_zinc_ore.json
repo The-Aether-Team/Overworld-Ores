@@ -1,4 +1,15 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:or",
+      "values": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "create"
+        }
+      ]
+    }
+  ],
   "type": "minecraft:block",
   "pools": [
     {
@@ -26,7 +37,7 @@
                   }
                 }
               ],
-              "name": "aether_overworld_ores:holystone_nickel_ore"
+              "name": "aether_overworld_ores:holystone_zinc_ore"
             },
             {
               "type": "nitrogen_internals:random",
@@ -52,7 +63,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "immersiveengineering:raw_nickel"
+                  "name": "create:raw_zinc"
                 }
               ]
             }
@@ -62,5 +73,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_overworld_ores:blocks/holystone_nickel_ore"
+  "random_sequence": "aether_overworld_ores:blocks/holystone_zinc_ore"
 }
