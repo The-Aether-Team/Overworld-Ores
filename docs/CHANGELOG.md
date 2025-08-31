@@ -1,3 +1,7 @@
+# Overworld Ores - NeoForge - 1.21.1-1.0.2
+
+- Fix loot table log warnings.
+
 # Overworld Ores - NeoForge - 1.21.1-1.0.1
 
 - Add lore entries for blocks.
