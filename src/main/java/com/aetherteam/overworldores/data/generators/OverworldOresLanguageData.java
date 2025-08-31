@@ -1,5 +1,6 @@
 package com.aetherteam.overworldores.data.generators;
 
+import com.aetherteam.aether.data.providers.AetherLanguageProvider;
 import com.aetherteam.nitrogen.data.providers.NitrogenLanguageProvider;
 import com.aetherteam.overworldores.OverworldOres;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
@@ -10,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class OverworldOresLanguageData extends NitrogenLanguageProvider {
+public class OverworldOresLanguageData extends AetherLanguageProvider {
     public OverworldOresLanguageData(PackOutput output) {
         super(output, OverworldOres.MODID);
     }

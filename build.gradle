@@ -89,7 +89,8 @@ repositories {
     maven { url = "https://maven.blamejared.com" }
     maven { url = "https://maven.theillusivec4.top/" }
     maven { url = "https://cursemaven.com" }
-    maven githubPackage.invoke("The-Aether-Team/The-Aether")
+    maven { url = "https://packages.aether-mod.net/The-Aether" }
+    maven { url = "https://packages.aether-mod.net/Nitrogen" }
 }
 
 tasks.named('jar', Jar).configure {

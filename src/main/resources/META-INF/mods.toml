@@ -11,7 +11,7 @@ updateJSONURL="https://github.com/The-Aether-Team/Overworld-Ores/raw/1.20.1-deve
 displayURL="https://modrinth.com/mod/overworld-ores"
 logoFile="aether_overworld_ores.png"
 credits="The Aether Team"
-authors="bconlon, Builderdog, Oz Payn"
+authors="bconlon, Builderdog, Oz Payn, reetam"
 description='''Implements new naturally generating Holystone variants of various vanilla and modded ores.'''
 
 [[dependencies.aether_overworld_ores]]
@@ -23,7 +23,7 @@ description='''Implements new naturally generating Holystone variants of various
 [[dependencies.aether_overworld_ores]]
     modId = "aether"
     mandatory = true
-    versionRange = "[1.20.1-1.0.0-neoforge,)"
+    versionRange = "[1.20.1-1.5.1-neoforge,)"
     ordering = "NONE"
     side = "BOTH"
 [[dependencies.aether_overworld_ores]]
