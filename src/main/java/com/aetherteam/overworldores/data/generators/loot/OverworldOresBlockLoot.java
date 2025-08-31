@@ -43,22 +43,22 @@ public class OverworldOresBlockLoot extends NitrogenBlockLootSubProvider {
         this.add(OverworldOresBlocks.HOLYSTONE_EMERALD_ORE.get(), (block) -> this.createOreDrop(block, Items.EMERALD));
         this.add(OverworldOresBlocks.HOLYSTONE_DIAMOND_ORE.get(), (block) -> this.createOreDrop(block, Items.DIAMOND));
 
-        for (ModdedOres.OreKey ore : ModdedOres.ORE_MOD_MAP.keySet()) {
-            Collection<ModdedOres.OreEntry> values = ModdedOres.ORE_MOD_MAP.get(ore);
-            Block block = ore.holystoneOreBlock().get();
-            if (values.isEmpty()) {
-                this.dropNone(block);
-            } else {
-                RandomEntry.Builder builder = new RandomEntry.Builder();
-                for (ModdedOres.OreEntry oreEntry : values) {
-                    builder = builder.another(this.applyExplosionDecay(block, LootItem.lootTableItem(oreEntry.raw().get()))
-                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(oreEntry.dropCount().getMinValue(), oreEntry.dropCount().getMaxValue())))
-                            .apply(ApplyBonusCount.addOreBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))));
-                }
-                RandomEntry.Builder finalBuilder = builder;
-                this.add(block, (inner) -> LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(inner).when(this.hasSilkTouch()).otherwise(finalBuilder))));
-            }
-        }
+//        for (ModdedOres.OreKey ore : ModdedOres.ORE_MOD_MAP.keySet()) {
+//            Collection<ModdedOres.OreEntry> values = ModdedOres.ORE_MOD_MAP.get(ore);
+//            Block block = ore.holystoneOreBlock().get();
+//            if (values.isEmpty()) {
+//                this.dropNone(block);
+//            } else {
+//                RandomEntry.Builder builder = new RandomEntry.Builder();
+//                for (ModdedOres.OreEntry oreEntry : values) {
+//                    builder = builder.another(this.applyExplosionDecay(block, LootItem.lootTableItem(oreEntry.raw().get()))
+//                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(oreEntry.dropCount().getMinValue(), oreEntry.dropCount().getMaxValue())))
+//                            .apply(ApplyBonusCount.addOreBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE))));
+//                }
+//                RandomEntry.Builder finalBuilder = builder;
+//                this.add(block, (inner) -> LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(inner).when(this.hasSilkTouch()).otherwise(finalBuilder))));
+//            }
+//        }
     }
 
     @Override
