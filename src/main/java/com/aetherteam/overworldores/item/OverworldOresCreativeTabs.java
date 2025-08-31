@@ -1,6 +1,5 @@
 package com.aetherteam.overworldores.item;
 
-import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.overworldores.OverworldOres;
@@ -57,7 +56,6 @@ public class OverworldOresCreativeTabs {
     @SubscribeEvent
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
         ResourceKey<CreativeModeTab> tab = event.getTabKey();
-        Aether.LOGGER.info(ORDER.stream().map((a) -> a.getFirst().get()).toList().toString());
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey()) {
             Block after = null;
             for (int i = 1; i < ORDER.size(); i++) {
