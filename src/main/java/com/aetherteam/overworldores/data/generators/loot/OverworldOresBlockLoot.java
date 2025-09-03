@@ -20,6 +20,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -63,6 +64,7 @@ public class OverworldOresBlockLoot extends NitrogenBlockLootSubProvider {
 
     @Override
     public Iterable<Block> getKnownBlocks() {
-        return OverworldOresBlocks.BLOCKS.getEntries().stream().map(Supplier::get).collect(Collectors.toList());
+        List<Block> moddedOres = ModdedOres.ORE_MOD_MAP.keySet().stream().map(key -> key.holystoneOreBlock().get()).toList();
+        return OverworldOresBlocks.BLOCKS.getEntries().stream().map(Supplier::get).filter(block -> !moddedOres.contains(block)).collect(Collectors.toList());
     }
 }

@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-02T11:56:36.4641705	Tags for minecraft:item mod id aether_overworld_ores
+// 1.21.1	2025-09-02T20:18:17.9642907	Tags for minecraft:item mod id aether_overworld_ores
 c8a1e1b7073c414e42774b260d9d03b6bff1c165 data/c/tags/item/ores.json
 f015b65594de56d9f06a985aedde43c284fdef5f data/c/tags/item/ores/lead.json
 b6e1f114ad282cd01d5b58df225153809485c60b data/c/tags/item/ores/nickel.json
@@ -9,3 +9,11 @@ e3ea082aaf42fe97634107a11990b7d1d912c58d data/c/tags/item/ores/sulfur.json
 7aa533df9aef4ff227994e97ea9f91a7db91c5d8 data/c/tags/item/ores/zinc.json
 dcfb0aa19becfd5c2b81927e4376930e28375881 data/c/tags/item/ore_rates/dense.json
 5412a779b7ea0cfcfe15a65b77436b10830cdf47 data/c/tags/item/ore_rates/singular.json
+aed75ba2b16a959796c4867a351d226a5c15ff5b data/minecraft/tags/item/coal_ores.json
+ed2ec903ec1ac9d1dec6819e6dfb56a616eae867 data/minecraft/tags/item/copper_ores.json
+0437eb26d63716ee5a721b9e8e857eabaa68ac52 data/minecraft/tags/item/diamond_ores.json
+1c009a3b744750786bddb1bbc69a00d98f9531c7 data/minecraft/tags/item/emerald_ores.json
+722b81f73cb34431fa655db3d7a0653e39e275d5 data/minecraft/tags/item/gold_ores.json
+11ac536f96673acdde496c8d2510714755d0fdfe data/minecraft/tags/item/iron_ores.json
+1f8770dd4fe146ad684db776ab11b3a692b60670 data/minecraft/tags/item/lapis_ores.json
+7dc8ab204d4df4b035c55e30545b1ae575f536fd data/minecraft/tags/item/redstone_ores.json
