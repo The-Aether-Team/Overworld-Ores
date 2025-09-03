@@ -82,6 +82,15 @@ dependencies {
     implementation fg.deobf("curse.maven:railcraft-reborn-901491:6149940")
     implementation fg.deobf("curse.maven:mekanism-268560:6258796")
     implementation fg.deobf("curse.maven:embers-300777:6156839")
+    implementation fg.deobf("curse.maven:oreganized-769203:6907823")
+    implementation fg.deobf("curse.maven:caverns-and-chasms-438005:6040957")
+    implementation fg.deobf("curse.maven:ice-and-fire-dragons-264231:5633453")
+
+    implementation fg.deobf("com.possible-triangle:multikulti-core-forge:1.20.1-1.0.4")
+    implementation fg.deobf("com.possible-triangle:multikulti-datagen-forge:1.20.1-1.0.4")
+    implementation fg.deobf("curse.maven:blueprint-382216:6408581")
+    implementation fg.deobf("curse.maven:citadel-331936:6702068")
+
     runtimeOnly fg.deobf("curse.maven:jei-238222:6075247")
 }
 
@@ -91,6 +100,7 @@ repositories {
     maven { url = "https://cursemaven.com" }
     maven { url = "https://packages.aether-mod.net/The-Aether" }
     maven { url = "https://packages.aether-mod.net/Nitrogen" }
+    maven { url = "https://registry.somethingcatchy.net/repository/maven-releases" }
 }
 
 tasks.named('jar', Jar).configure {

@@ -30,12 +30,16 @@ public class ModdedOres {
                 new OreEntry("railcraft", getItem("railcraft", "lead_raw"), ConstantInt.of(1), getItem("railcraft", "lead_ingot"), 1.0F),
                 new OreEntry("mekanism", getItem("mekanism", "raw_lead"), ConstantInt.of(1), getItem("mekanism", "ingot_lead"), 0.6F),
                 new OreEntry("embers", getItem("embers", "raw_lead"), ConstantInt.of(1), getItem("embers", "lead_ingot"), 0.7F),
-                new OreEntry("immersiveengineering", getItem("immersiveengineering", "raw_lead"), ConstantInt.of(1), getItem("immersiveengineering", "ingot_lead"), 0.7F)));
+                new OreEntry("immersiveengineering", getItem("immersiveengineering", "raw_lead"), ConstantInt.of(1), getItem("immersiveengineering", "ingot_lead"), 0.7F),
+                new OreEntry("oreganized", getItem("oreganized", "raw_lead"), ConstantInt.of(1), getItem("oreganized", "lead_ingot"), 0.7F)));
         ORE_MOD_MAP.put(new OreKey("silver", OverworldOresBlocks.HOLYSTONE_SILVER_ORE), Lists.newArrayList(
                 new OreEntry("thermal", getItem("thermal", "raw_silver"), ConstantInt.of(1), getItem("thermal", "silver_ingot"), 1.0F),
                 new OreEntry("railcraft", getItem("railcraft", "silver_raw"), ConstantInt.of(1), getItem("railcraft", "silver_ingot"), 1.0F),
                 new OreEntry("embers", getItem("embers", "raw_silver"), ConstantInt.of(1), getItem("embers", "silver_ingot"), 0.7F),
-                new OreEntry("immersiveengineering", getItem("immersiveengineering", "raw_silver"), ConstantInt.of(1), getItem("immersiveengineering", "ingot_silver"), 1.0F)));
+                new OreEntry("immersiveengineering", getItem("immersiveengineering", "raw_silver"), ConstantInt.of(1), getItem("immersiveengineering", "ingot_silver"), 1.0F),
+                new OreEntry("oreganized", getItem("oreganized", "raw_silver"), ConstantInt.of(1), getItem("oreganized", "silver_ingot"), 1.0F),
+                new OreEntry("caverns_and_chasms", getItem("caverns_and_chasms", "raw_silver"), ConstantInt.of(1), getItem("caverns_and_chasms", "silver_ingot"), 1.0F),
+                new OreEntry("iceandfire", getItem("iceandfire", "raw_silver"), ConstantInt.of(1), getItem("iceandfire", "silver_ingot"), 0.35F)));
         ORE_MOD_MAP.put(new OreKey("nickel", OverworldOresBlocks.HOLYSTONE_NICKEL_ORE), Lists.newArrayList(
                 new OreEntry("thermal", getItem("thermal", "raw_nickel"), ConstantInt.of(1), getItem("thermal", "nickel_ingot"), 1.0F),
                 new OreEntry("railcraft", getItem("railcraft", "nickel_raw"), ConstantInt.of(1), getItem("railcraft", "nickel_ingot"), 1.0F),
