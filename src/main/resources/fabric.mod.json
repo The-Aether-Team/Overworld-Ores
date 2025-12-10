@@ -27,9 +27,6 @@
       "com.aetherteam.overworldores.data.OverworldOresData"
     ]
   },
-  "mixins": [
-    "${mod_id}.mixins.json"
-  ],
   "accessWidener": "${mod_id}.accesswidener",
   "depends": {
     "fabricloader": "${fabric_loader_version_range}",

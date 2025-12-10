@@ -2,7 +2,7 @@ package com.aetherteam.overworldores.item;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
-import com.aetherteam.aetherfabric.registries.DeferredBlock;
+import com.aetherteam.nitrogen.fabric.registries.DeferredBlock;
 import com.aetherteam.overworldores.OverworldOres;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import com.aetherteam.overworldores.integration.ModdedOres;

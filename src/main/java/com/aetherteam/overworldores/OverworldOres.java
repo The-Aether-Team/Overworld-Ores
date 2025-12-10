@@ -1,10 +1,9 @@
 package com.aetherteam.overworldores;
 
-import com.aetherteam.aetherfabric.registries.DeferredRegister;
+import com.aetherteam.nitrogen.fabric.registries.DeferredRegister;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import com.aetherteam.overworldores.block.OverworldOresItems;
 import com.aetherteam.overworldores.item.OverworldOresCreativeTabs;
-import com.aetherteam.overworldores.world.BiomeModificationDataRegistries;
 import com.aetherteam.overworldores.world.placementmodifiers.OverworldOresPlacementModifiers;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
@@ -31,7 +30,5 @@ public class OverworldOres implements ModInitializer {
         Reflection.initialize(OverworldOresPlacementModifiers.class);
 
         ItemGroupEvents.MODIFY_ENTRIES_ALL.register(OverworldOresCreativeTabs::buildCreativeModeTabs);
-
-        BiomeModificationDataRegistries.init();
     }
 }

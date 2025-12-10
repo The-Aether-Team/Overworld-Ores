@@ -1,6 +1,6 @@
 package com.aetherteam.overworldores.integration;
 
-import com.aetherteam.aetherfabric.registries.DeferredBlock;
+import com.aetherteam.nitrogen.fabric.registries.DeferredBlock;
 import com.aetherteam.overworldores.block.OverworldOresBlocks;
 import com.google.common.collect.Lists;
 import net.minecraft.core.registries.BuiltInRegistries;

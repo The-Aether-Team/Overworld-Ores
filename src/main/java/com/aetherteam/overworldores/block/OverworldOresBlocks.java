@@ -1,6 +1,8 @@
 package com.aetherteam.overworldores.block;
 
 import com.aetherteam.aether.block.natural.AetherDoubleDropsOreBlock;
+import com.aetherteam.nitrogen.fabric.registries.DeferredBlock;
+import com.aetherteam.nitrogen.fabric.registries.DeferredRegister;
 import com.aetherteam.overworldores.OverworldOres;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -12,8 +14,6 @@ import net.minecraft.world.level.block.RedStoneOreBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
-import com.aetherteam.aetherfabric.registries.DeferredBlock;
-import com.aetherteam.aetherfabric.registries.DeferredRegister;
 
 import java.util.ArrayList;
 import java.util.List;
